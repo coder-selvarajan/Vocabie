@@ -75,7 +75,7 @@ struct HomeView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack{
                 ZStack {
                     List {
@@ -219,39 +219,48 @@ struct HomeView: View {
                         
                         // Game section
                         Section(header: Text("Gamify your learning").padding(.horizontal, 15)) {
-                            HStack(spacing: 10) {
-                                NavigationLink(value: 13) {
-                                    VStack(alignment: SwiftUI.HorizontalAlignment.leading){
-                                        Text("Randomizer")
-                                            .font(.callout).bold()
-                                            .foregroundColor(.white)
-                                        Text("word, sentence")
-                                            .font(.footnote).foregroundColor(.white.opacity(0.6))
+                            ScrollView (.horizontal, showsIndicators: false) {
+                                HStack(spacing: 10) {
+                                    NavigationLink(destination: RandomPickerView(), tag: 13, selection: $selection) {
+                                        Button(action: {
+                                            self.selection = 13
+                                        }) {
+                                            VStack(alignment: SwiftUI.HorizontalAlignment.leading){
+                                                Text("Randomizer")
+                                                    .font(.callout).bold()
+                                                    .foregroundColor(.white)
+                                                Text("words, phrases")
+                                                    .font(.footnote).foregroundColor(.white.opacity(0.6))
+                                            }.foregroundColor(.white)
+                                        }
+                                        .frame(width: 175, height: 75, alignment: .center)
+                                        .background(
+                                            LinearGradient(gradient: Gradient(colors: [.indigo, .indigo.opacity(0.9), .indigo.opacity(0.55)]), startPoint: .top, endPoint: .bottom)
+                                        ).cornerRadius(10)
                                     }
-                                    .foregroundColor(.white)
-                                    .frame(width: 155, height: 75, alignment: .center)
-                                    .background(
-                                        LinearGradient(gradient: Gradient(colors: [.indigo, .indigo.opacity(0.9), .indigo.opacity(0.55)]), startPoint: .top, endPoint: .bottom)
-                                    ).cornerRadius(10)
-                                }
-                                
-                                NavigationLink(value: 12) {
-                                    VStack(alignment: SwiftUI.HorizontalAlignment.leading){
-                                        Text("Pick Definition")
-                                            .font(.callout).bold()
-                                            .foregroundColor(.white)
-                                        Text("by word").font(.footnote).foregroundColor(.white.opacity(0.6))
+                                    
+                                    NavigationLink(destination: PickDefinitionHome(), tag: 12, selection: $selection) {
+                                        Button(action: {
+                                            self.selection = 12
+                                        }) {
+                                            VStack(alignment: SwiftUI.HorizontalAlignment.leading){
+                                                Text("Pick Definition")
+                                                    .font(.callout).bold()
+                                                    .foregroundColor(.white)
+                                                Text("by word").font(.footnote).foregroundColor(.white.opacity(0.6))
+                                            }
+                                        }
+                                        .frame(width: 175, height: 75, alignment: .center)
+                                        .background(
+                                            LinearGradient(gradient: Gradient(colors: [.blue, .blue.opacity(0.9), .blue.opacity(0.55)]), startPoint: .top, endPoint: .bottom)
+                                        ).cornerRadius(10)
                                     }
-                                    .frame(width: 155, height: 75, alignment: .center)
-                                    .background(
-                                        LinearGradient(gradient: Gradient(colors: [.blue, .blue.opacity(0.9), .blue.opacity(0.55)]), startPoint: .top, endPoint: .bottom)
-                                    ).cornerRadius(10)
+                                    Spacer()
                                 }
-                                
+//                                .padding(.leading, 10)
                             }
-                            .padding(0)
                         }
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        .listRowInsets(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 0))
                         .listRowBackground(Color.clear)
                         
                         //Your Recent Words
@@ -313,9 +322,11 @@ struct HomeView: View {
                     .padding(0)
                     .padding(.top, -15)
                     .listStyle(.insetGrouped)
+//                    .scrollContentBackground(.hidden) // Hide default background
+//                    .background(Color.indigo.opacity(0.25))
                     .onAppear {
                         userWordListVM.getRecentWordEntries()
-                        userSentenceListVM.getRecentSentenceEntries()
+//                        userSentenceListVM.getRecentSentenceEntries()
                         userPhraseListVM.getRecentPhraseEntries()
                     }
                     
@@ -334,12 +345,12 @@ struct HomeView: View {
                                     Text("Word")
                                 }.padding()
                                 
-                                Button(action: {
-                                    // Add new word
-                                    self.selection = 2
-                                }) {
-                                    Text("Sentence")
-                                }.padding()
+//                                Button(action: {
+//                                    // Add new word
+//                                    self.selection = 2
+//                                }) {
+//                                    Text("Sentence")
+//                                }.padding()
                                 
                                 Button(action: {
                                     // Add new word
@@ -368,13 +379,6 @@ struct HomeView: View {
                     }
                 }
                 .padding(0)
-            }
-            .navigationDestination(for: Int.self) { tag in
-                if tag == 13 {
-                    RandomPickerView()
-                } else if tag == 12 {
-                    PickDefinitionHome()
-                }
             }
             .padding(0)
             .navigationTitle("Vocabie")
