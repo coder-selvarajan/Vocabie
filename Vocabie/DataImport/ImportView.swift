@@ -34,7 +34,7 @@ struct ImportView: View {
                             .frame (height: 50)
                             .frame (maxWidth: .infinity)
                             .background(.indigo)
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                     }.padding(.horizontal)
                     
                     Button {
@@ -52,7 +52,7 @@ struct ImportView: View {
                             .frame (height: 50)
                             .frame (maxWidth: .infinity)
                             .background(.indigo)
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                     }.padding(.horizontal)
                 }
                 .padding()
@@ -71,7 +71,7 @@ struct ImportView: View {
                             .frame (height: 50)
                             .frame (maxWidth: .infinity)
                             .background(.blue)
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                     }.padding(.horizontal)
                     
                     Button {
@@ -82,7 +82,7 @@ struct ImportView: View {
                             .frame (height: 50)
                             .frame (maxWidth: .infinity)
                             .background(.blue)
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                     }.padding(.horizontal)
                     
                 }
