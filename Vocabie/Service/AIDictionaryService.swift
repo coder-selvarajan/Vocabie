@@ -1,5 +1,5 @@
 //
-//  LocalAIService.swift
+//  AIDictionaryService.swift
 //  Vocabie
 //
 //  Created by Selvarajan on 7/14/25.
@@ -84,7 +84,7 @@ struct WordDefinition: Codable, Equatable {
 //    var id: String
 }
 
-class LocalAIService {
+class AIDictionaryService {
     
     static func isAIModelavailabile() -> (Bool, String) {
         let model = SystemLanguageModel.default

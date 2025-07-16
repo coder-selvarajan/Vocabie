@@ -142,7 +142,7 @@ struct SpellWord: View {
                         .foregroundColor( showResult ? .white : .gray)
                         .frame (height: 55)
                         .background (Color.indigo)
-                        .cornerRadius(10)
+                        .cornerRadius(20)
                     })
                     .padding()
                     Spacer()
@@ -205,7 +205,7 @@ struct SpellWord: View {
                             .foregroundColor(.white)
                             .frame (height: 55)
                             .background (Color.indigo)
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                         }
                         
 //                        NavigationLink(destination: HomeView(), tag: 1, selection: $navigationSelection) {
@@ -223,7 +223,7 @@ struct SpellWord: View {
 //                                .foregroundColor(.white)
 //                                .frame (height: 55)
 //                                .background (Color.indigo)
-//                                .cornerRadius(10)
+//                                .cornerRadius(20)
 //                            }
 //                        }
                     }

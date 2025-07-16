@@ -31,7 +31,7 @@ struct FlipView<Front, Back>: View where Front: View, Back: View {
         }
         .rotation3DEffect(.degrees(contentRotation), axis: (x: 0, y: 1, z: 0))
         .padding()
-        .frame(height: 250)
+        .frame(height: 350)
         .frame(maxWidth: .infinity)
         .background(Color(hex: "dcdcdc"))
         .foregroundColor(.black)

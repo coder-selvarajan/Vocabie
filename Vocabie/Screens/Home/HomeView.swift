@@ -218,7 +218,7 @@ struct HomeView: View {
                         .listRowBackground(Color.clear)
                         
                         // Game section
-                        Section(header: Text("Gamify your learning").padding(.horizontal, 15)) {
+                        Section(header: Text("Word Games").padding(.horizontal, 15)) {
                             ScrollView (.horizontal, showsIndicators: false) {
                                 HStack(spacing: 10) {
                                     NavigationLink(destination: RandomPickerView(), tag: 13, selection: $selection) {
@@ -226,17 +226,17 @@ struct HomeView: View {
                                             self.selection = 13
                                         }) {
                                             VStack(alignment: SwiftUI.HorizontalAlignment.leading){
-                                                Text("Randomizer")
+                                                Text("Flashcards")
                                                     .font(.callout).bold()
                                                     .foregroundColor(.white)
-                                                Text("words, phrases")
+                                                Text("Random word pick")
                                                     .font(.footnote).foregroundColor(.white.opacity(0.6))
                                             }.foregroundColor(.white)
                                         }
                                         .frame(width: 175, height: 75, alignment: .center)
                                         .background(
                                             LinearGradient(gradient: Gradient(colors: [.indigo, .indigo.opacity(0.9), .indigo.opacity(0.55)]), startPoint: .top, endPoint: .bottom)
-                                        ).cornerRadius(10)
+                                        ).cornerRadius(20)
                                     }
                                     
                                     NavigationLink(destination: PickDefinitionHome(), tag: 12, selection: $selection) {
@@ -244,7 +244,7 @@ struct HomeView: View {
                                             self.selection = 12
                                         }) {
                                             VStack(alignment: SwiftUI.HorizontalAlignment.leading){
-                                                Text("Pick Definition")
+                                                Text("Hunt Definitions")
                                                     .font(.callout).bold()
                                                     .foregroundColor(.white)
                                                 Text("by word").font(.footnote).foregroundColor(.white.opacity(0.6))
@@ -253,7 +253,7 @@ struct HomeView: View {
                                         .frame(width: 175, height: 75, alignment: .center)
                                         .background(
                                             LinearGradient(gradient: Gradient(colors: [.blue, .blue.opacity(0.9), .blue.opacity(0.55)]), startPoint: .top, endPoint: .bottom)
-                                        ).cornerRadius(10)
+                                        ).cornerRadius(20)
                                     }
                                     Spacer()
                                 }
@@ -364,7 +364,7 @@ struct HomeView: View {
                                 ZStack {
                                     LinearGradient(gradient: Gradient(colors: [.indigo, .blue]), startPoint: .top, endPoint: .bottom)
                                         .frame(width: 65, height: 65)
-                                        .cornerRadius(10)
+                                        .cornerRadius(20)
                                     Image(systemName: "plus")
                                         .foregroundColor(.white)
                                         .font(.title)
@@ -381,27 +381,51 @@ struct HomeView: View {
                 .padding(0)
             }
             .padding(0)
-            .navigationTitle("Vocabie")
+//            .navigationTitle("Vocabie")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
-                    NavigationLink(destination: ImportView()) {
-                        Image(systemName: "line.3.horizontal.circle")
+                ToolbarItem(placement: ToolbarItemPlacement.topBarLeading) {
+                    HStack {
+                        Image(systemName: "info")
+                            .font(.subheadline)
                     }
+                }
+                ToolbarItem(placement: ToolbarItemPlacement.principal) {
+                    HStack {
+                        Text("Vocabie")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        
+                        Image(systemName: "sparkles")
+                            .font(.headline)
+                        Spacer()
+                    }
+                    
+//                    NavigationLink(destination: ImportView()) {
+//                        Image(systemName: "line.3.horizontal.circle")
+//                    }
                 }
                 
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                    Button(action: {
-                        if appTheme == "dark" {
-                            UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
-                        }
-                        else {
-                            UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
-                        }
-                        appTheme = appTheme == "dark" ? "light" : "dark"
-                    }, label: {
-                        Image(systemName: "gearshape.fill")
-                    })
+                    NavigationLink(destination: AIEnglishChatbotView()) {
+                        HStack(spacing: 5) {
+                            Text("Ask AI")
+                            Image(systemName: "ellipsis.message")
+                        }.font(.headline)
+                    }
+                    
+                    
+//                    Button(action: {
+//                        if appTheme == "dark" {
+//                            UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
+//                        }
+//                        else {
+//                            UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
+//                        }
+//                        appTheme = appTheme == "dark" ? "light" : "dark"
+//                    }, label: {
+//                        Image(systemName: "gearshape.fill")
+//                    })
                     
                 }
             }

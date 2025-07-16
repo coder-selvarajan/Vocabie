@@ -61,6 +61,8 @@ struct ClearButton: ViewModifier
 }
 
 struct Dictionary: View {
+    @State private var aiDictionaryService = AIDictionaryService()
+    
     @StateObject var userWordListVM = UserWordListViewModel()
     @StateObject var searchHistoryVM = SearchHistoryViewModel()
     @State var dictionaryJson: [String] = []
@@ -94,20 +96,6 @@ struct Dictionary: View {
         vmDict.fetchData(inputWord: searchText, searchHistoryVM: searchHistoryVM)
     }
     
-    func searchSubmit2WordsApi() {
-        vmDict.definitionFound = nil
-        vmDict.isFetching = true
-        vmDict.wordsApiResponse = nil
-        vmDict.fetchFromWordsApi(inputWord: searchText)
-    }
-    
-    func searchSubmit2LocalAI() {
-        vmDict.definitionFound = nil
-        vmDict.isFetching = true
-        vmDict.wordsApiResponse = nil
-        vmDict.fetchFromWordsApi(inputWord: searchText)
-    }
-    
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading) {
             ScrollView {
@@ -126,7 +114,7 @@ struct Dictionary: View {
                     .padding(.horizontal, 15)
                     .padding(.vertical, 15)
                     .background(.gray.opacity(0.1))
-                    .cornerRadius(10)
+                    .cornerRadius(20)
                     .focused($searchIsFocused)
                     .submitLabel(SubmitLabel.search)
                     .disableAutocorrection(true)
@@ -259,7 +247,7 @@ struct Dictionary: View {
                                     dictType = 1
                                 } label: {
                                     VStack{
-                                        Text("Online Api")
+                                        Text("Online Dictionary")
                                         Rectangle().frame(height: 1)
                                             .foregroundColor(dictType == 1 ? .indigo : .clear)
                                     }
@@ -267,45 +255,6 @@ struct Dictionary: View {
                                 .padding(.trailing)
                                 .foregroundColor(dictType == 1 ? .indigo : .secondary)
                                 
-                                Button {
-                                    if (vmDict.wordsApiResponse == nil) {
-                                        // Do WordsApi fetch
-                                        searchState = .submitted
-                                        searchSubmit2WordsApi()
-                                    }
-                                    
-                                    dictType = 9
-                                } label: {
-                                    VStack{
-                                        Text("On-device AI")
-                                        Rectangle().frame(height: 1)
-                                            .foregroundColor(dictType == 2 ? .indigo : .clear)
-                                    }
-                                }
-                                .padding(.trailing)
-                                .foregroundColor(dictType == 2 ? .indigo : .secondary)
-                                
-                                /*
-                                // WordsApi
-                                Button {
-                                    if (vmDict.wordsApiResponse == nil) {
-                                        // Do WordsApi fetch
-                                        searchState = .submitted
-                                        searchSubmit2WordsApi()
-                                    }
-                                    
-                                    dictType = 2
-                                } label: {
-                                    VStack{
-                                        Text("WordsApi")
-                                        Rectangle().frame(height: 1)
-                                            .foregroundColor(dictType == 2 ? .indigo : .clear)
-                                    }
-                                }
-                                .padding(.trailing)
-                                .foregroundColor(dictType == 2 ? .indigo : .secondary)
-                                
-                                // Tamil
                                 Button {
                                     if (vmDict.tamilResponse == nil) {
                                         DispatchQueue.main.async {
@@ -321,7 +270,7 @@ struct Dictionary: View {
                                     
                                 } label: {
                                     VStack{
-                                        Text("Tamil")
+                                        Text("Tamil Dictionary")
                                         Rectangle().frame(height: 1)
                                             .foregroundColor(dictType == 5 ? .indigo : .clear)
                                     }
@@ -329,91 +278,32 @@ struct Dictionary: View {
                                 .padding(.trailing)
                                 .foregroundColor(dictType == 5 ? .indigo : .secondary)
                                 
-                                // OwlBot
+                                
                                 Button {
-                                    if (vmDict.owlbotResponse == nil) {
-                                        DispatchQueue.main.async {
-                                            // Do Websters Dictionary fetch
-                                            searchState = .submitted
-                                            vmDict.definitionFound = nil
-                                            vmDict.isFetching = true
+                                    searchState = .submitted
+                                    if aiDictionaryService.wordDefinition == nil
+                                        && aiDictionaryService.wordDefinition?.word != searchText {
+                                        Task {
+                                            try await aiDictionaryService.fetchDefinition(for: searchText)
                                         }
-                                        vmDict.fetchFromOwlBot(inputWord: searchText)
                                     }
                                     
-                                    dictType = 6
-                                    
+                                    vmDict.isFetching = false
+                                    vmDict.definitionFound = true
+                                    dictType = 9
                                 } label: {
                                     VStack{
-                                        Text("OwlBot")
+                                        HStack {
+                                            Text("Ask AI")
+                                            Image(systemName: "sparkles")
+                                                            .font(.caption)
+                                        }
                                         Rectangle().frame(height: 1)
-                                            .foregroundColor(dictType == 6 ? .indigo : .clear)
+                                            .foregroundColor(dictType == 9 ? .indigo : .clear)
                                     }
                                 }
                                 .padding(.trailing)
-                                .foregroundColor(dictType == 6 ? .indigo : .secondary)
-                                
-                                // Websters Dictionary
-                                Button {
-                                    if (vmDict.webstersResponse == nil) {
-                                        // Do Websters Dictionary fetch
-                                        searchState = .submitted
-                                        vmDict.definitionFound = nil
-                                        vmDict.isFetching = true
-                                        vmDict.fetchFromWebsters(inputWord: searchText)
-                                    }
-                                    
-                                    dictType = 4
-                                    
-                                } label: {
-                                    VStack{
-                                        Text("Websters")
-                                        Rectangle().frame(height: 1)
-                                            .foregroundColor(dictType == 4 ? .indigo : .clear)
-                                    }
-                                }
-                                .padding(.trailing)
-                                .foregroundColor(dictType == 4 ? .indigo : .secondary)
-                                
-    
-                                
-                                //Google
-                                Button {
-                                    showGoogleWebView.toggle()
-                                    dictType = 3
-                                    searchState = .submitted
-                                } label: {
-                                    VStack{
-                                        Text("Google Search")
-                                        Rectangle().frame(height: 1)
-                                            .foregroundColor(dictType == 3 ? .indigo : .clear)
-                                    }
-                                }
-                                .padding(.trailing)
-                                .foregroundColor(dictType == 3 ? .indigo : .secondary)
-                                .sheet(isPresented: $showGoogleWebView) {
-                                    UIWebView(url: URL(string: "https://www.google.co.in/search?q=define+\(searchText.lowercased().trim())")!)
-                                }
-                                
-                                //https://en.wiktionary.org/wiki/astonishing
-                                //Wikipedia
-                                Button {
-                                    showWikipediaWebView.toggle()
-                                    dictType = 7
-                                    searchState = .submitted
-                                } label: {
-                                    VStack{
-                                        Text("Wikipedia")
-                                        Rectangle().frame(height: 1)
-                                            .foregroundColor(dictType == 7 ? .indigo : .clear)
-                                    }
-                                }
-                                .padding(.trailing)
-                                .foregroundColor(dictType == 7 ? .indigo : .secondary)
-                                .sheet(isPresented: $showWikipediaWebView) {
-                                    UIWebView(url: URL(string: "https://en.wiktionary.org/wiki/\(searchText.lowercased().trim())")!)
-                                }
-                                */
+                                .foregroundColor(dictType == 9 ? .indigo : .secondary)
                                 
                             }
                             .foregroundColor(.primary)
@@ -470,7 +360,7 @@ struct Dictionary: View {
                                             .frame (height: 55)
                                             .frame (maxWidth: .infinity)
                                             .background (Color.indigo)
-                                            .cornerRadius(10)
+                                            .cornerRadius(20)
                                     })
                                 }
                                 else { //if no response found
@@ -481,52 +371,6 @@ struct Dictionary: View {
                                             .padding()
                                             .foregroundColor(.red)
                                     }
-                                }
-                            }
-                            
-                            // WordsApi
-                            if dictType == 2 {
-                                if vmDict.wordsApiResponse != nil {
-                                    Text(vmDict.wordsApiResponse?.word ?? "")
-                                        .font(.largeTitle)
-
-                                    HStack(spacing: 15) {
-                                        Text("Phonetics:").font(.headline).foregroundColor(.blue)
-                                        Text("\(vmDict.wordsApiResponse?.pronunciation.all ?? "") ")
-                                    }.padding(.top, 0)
-
-                                    Divider()
-                                    Text("Definition:").font(.headline).foregroundColor(.blue)
-                                    Text("\(extractDefinitionFrom(wordsApiResults: vmDict.wordsApiResponse!.results))").padding(.top, 0)
-                                    Divider()
-
-                                    if (extractExmple(meanings: vmDict.wordInfo!.meanings) != "") {
-                                        Text("Example Usage:").font(.headline).foregroundColor(.blue)
-                                        Text("\(extractExampleFrom(wordsApiResults: vmDict.wordsApiResponse!.results))").padding(.top, 0)
-                                    }
-
-                                    Button(action: {
-                                        userWordListVM.saveWord(word: vmDict.wordsApiResponse!.word,
-                                                                tag: "WordsApi",
-                                                                meaning: extractDefinitionFrom(wordsApiResults: vmDict.wordsApiResponse!.results),
-                                                                sampleSentence: extractExampleFrom(wordsApiResults: vmDict.wordsApiResponse!.results))
-                                        presentationMode.wrappedValue.dismiss()
-                                    }, label: {
-                                        Text("+ Add this word to my vocabulary")
-                                            .font(.headline)
-                                            .foregroundColor(.white)
-                                            .frame (height: 55)
-                                            .frame (maxWidth: .infinity)
-                                            .background (Color.indigo)
-                                            .cornerRadius(10)
-                                    })
-                                }
-                                else { //if no response found
-                                    Text("No definition is found for '**\(searchText)**'")
-                                        .fontWeight(.thin)
-                                        .multilineTextAlignment(.center)
-                                        .padding()
-                                        .foregroundColor(.red)
                                 }
                             }
                             
@@ -555,7 +399,7 @@ struct Dictionary: View {
                                             .frame (height: 55)
                                             .frame (maxWidth: .infinity)
                                             .background (Color.indigo)
-                                            .cornerRadius(10)
+                                            .cornerRadius(20)
                                     })
                                 }
                                 else { //if no response found
@@ -567,141 +411,12 @@ struct Dictionary: View {
                                 }
                             }
                             
-                            // OwlBot
-                            if dictType == 6 {
-                                if vmDict.owlbotResponse != nil {
-                                    Text(vmDict.owlbotResponse?.word ?? "")
-                                        .font(.largeTitle)
-                                    
-                                    HStack(spacing: 15) {
-                                        Text("Phonetics:").font(.headline).foregroundColor(.blue)
-                                        Text("\(vmDict.owlbotResponse?.pronunciation ?? "") ")
-                                    }.padding(.top, 0)
-                                    
-                                    Divider()
-                                    Text("Definition:").font(.headline).foregroundColor(.blue)
-                                    Text("\(extractDefinitionFromOwlBot(owlbotResponse: vmDict.owlbotResponse!))").padding(.top, 0)
-                                    Divider()
-                                    
-                                    if (extractExampleFromOwlBot(owlbotResponse: vmDict.owlbotResponse!) != "") {
-                                        Text("Example Usage:").font(.headline).foregroundColor(.blue)
-                                        Text("\(extractExampleFromOwlBot(owlbotResponse: vmDict.owlbotResponse!))").padding(.top, 0)
-                                    }
-                                    
-                                    Button(action: {
-                                        userWordListVM.saveWord(word: vmDict.owlbotResponse!.word ?? "",
-                                                                tag: "OwlBot",
-                                                                meaning: extractDefinitionFromOwlBot(owlbotResponse: vmDict.owlbotResponse!),
-                                                                sampleSentence: extractDefinitionFromOwlBot(owlbotResponse: vmDict.owlbotResponse!))
-                                        presentationMode.wrappedValue.dismiss()
-                                    }, label: {
-                                        Text("+ Add this word to my vocabulary")
-                                            .font(.headline)
-                                            .foregroundColor(.white)
-                                            .frame (height: 55)
-                                            .frame (maxWidth: .infinity)
-                                            .background (Color.indigo)
-                                            .cornerRadius(10)
-                                    })
-                                }
-                                else { //if no response found
-                                    Text("No definition found in 'OwlBot Dictionary' for '**\(searchText)**'")
-                                        .fontWeight(.thin)
-                                        .multilineTextAlignment(.center)
-                                        .padding()
-                                        .foregroundColor(.red)
-                                }
+                            
+                            // AI Dictionary
+                            if dictType == 9 {
+                                WordLookupView(dictionaryService: aiDictionaryService)
                             }
                             
-                            // Websters Dictionary - from local json file
-                            if dictType == 4 {
-                                if vmDict.webstersResponse != nil {
-                                    
-                                    Text(vmDict.searchWord)
-                                        .font(.largeTitle)
-                                    
-                                    Divider()
-                                    Text("Definition:").font(.headline).foregroundColor(.blue)
-                                    Text("\(vmDict.webstersResponse ?? "")").padding(.top, 0)
-                                    Divider()
-                                    
-                                    Button(action: {
-                                        userWordListVM.saveWord(word: vmDict.searchWord,
-                                                                tag: "Webster",
-                                                                meaning: vmDict.webstersResponse!,
-                                                                sampleSentence: "")
-                                        presentationMode.wrappedValue.dismiss()
-                                    }, label: {
-                                        Text("+ Add this word to my vocabulary")
-                                            .font(.headline)
-                                            .foregroundColor(.white)
-                                            .frame (height: 55)
-                                            .frame (maxWidth: .infinity)
-                                            .background (Color.indigo)
-                                            .cornerRadius(10)
-                                    })
-                                }
-                                else { //if no response found
-                                    Text("No definition found in 'Webster Dictionary' for '**\(searchText)**'")
-                                        .fontWeight(.thin)
-                                        .multilineTextAlignment(.center)
-                                        .padding()
-                                        .foregroundColor(.red)
-                                }
-                            }
-                            
-                            
-                            
-                            // Google
-                            if dictType == 3 && searchText != "" {
-                                VStack {
-                                    Text("You may copy the content from the webpage and add that as a word below.")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                        .padding()
-                                    
-                                    
-                                    Button(action: {
-                                        showNewWordView.toggle()
-                                    }, label: {
-                                        Text("Add Word Screen")
-                                            .font(.headline)
-                                            .foregroundColor(.white)
-                                            .frame (height: 55)
-                                            .frame (maxWidth: .infinity)
-                                            .background (Color.indigo)
-                                            .cornerRadius(10)
-                                    })
-                                    .sheet(isPresented: $showNewWordView) {
-                                        AddUserWordView(newWord: searchText)
-                                    }
-                                }
-                            }
-                            
-                            // Wikipedia
-                            if dictType == 7 && searchText != "" {
-                                VStack {
-                                    Text("You may copy the content from the webpage and add a word.")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                        .padding()
-                                    
-                                    Button(action: {
-                                        showNewWordView.toggle()
-                                    }, label: {
-                                        Text("+ Goto to Add Word Screen")
-                                            .font(.headline)
-                                            .foregroundColor(.white)
-                                            .frame (height: 55)
-                                            .frame (maxWidth: .infinity)
-                                            .background (Color.indigo)
-                                            .cornerRadius(10)
-                                    })
-                                    .sheet(isPresented: $showNewWordView) {
-                                        AddUserWordView(newWord: searchText)
-                                    }
-                                }
-                            }
                         }
                     }
                 }.padding()
