@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -69,7 +69,11 @@
 		70E0225528421D13009EA836 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0225428421D13009EA836 /* WebView.swift */; };
 		70FEB4B728190F80000EEB6D /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FEB4B628190F80000EEB6D /* Test2.swift */; };
 		FF0DC1462E25687E00CBD1B3 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = FF0DC1452E25687E00CBD1B3 /* SwiftCSV */; };
-		FF0DC1482E25700D00CBD1B3 /* LocalAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0DC1472E25700300CBD1B3 /* LocalAIService.swift */; };
+		FF0DC1482E25700D00CBD1B3 /* AIDictionaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0DC1472E25700300CBD1B3 /* AIDictionaryService.swift */; };
+		FFD264692E2772F100262204 /* apptics-config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFD264682E2772F100262204 /* apptics-config.plist */; };
+		FFD2646C2E2773FA00262204 /* AppticsAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFD2646B2E2773FA00262204 /* AppticsAnalytics */; };
+		FFD2646E2E2773FA00262204 /* AppticsExtension in Frameworks */ = {isa = PBXBuildFile; productRef = FFD2646D2E2773FA00262204 /* AppticsExtension */; };
+		FFD2647C2E2788FB00262204 /* WordLookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2647B2E2788FB00262204 /* WordLookupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,8 +153,14 @@
 		70DFA4C627F8B2E4007FADB1 /* AddUserPhraseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserPhraseView.swift; sourceTree = "<group>"; };
 		70E0225428421D13009EA836 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		70FEB4B628190F80000EEB6D /* Test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
-		FF0DC1472E25700300CBD1B3 /* LocalAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAIService.swift; sourceTree = "<group>"; };
+		FF0DC1472E25700300CBD1B3 /* AIDictionaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDictionaryService.swift; sourceTree = "<group>"; };
+		FFD264682E2772F100262204 /* apptics-config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "apptics-config.plist"; sourceTree = "<group>"; };
+		FFD2647B2E2788FB00262204 /* WordLookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordLookupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		FFD2647D2E27C32200262204 /* AIChatBot */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AIChatBot; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		701BE0D52885DB3A0093CCC8 /* Frameworks */ = {
@@ -165,6 +175,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				709F859F2838166E002CC860 /* CloudKit.framework in Frameworks */,
+				FFD2646E2E2773FA00262204 /* AppticsExtension in Frameworks */,
+				FFD2646C2E2773FA00262204 /* AppticsAnalytics in Frameworks */,
 				FF0DC1462E25687E00CBD1B3 /* SwiftCSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +215,7 @@
 		7021B53E284011DE00DB8EBB /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
+				FFD2647B2E2788FB00262204 /* WordLookupView.swift */,
 				703052D72811318C004FD5D2 /* Words.swift */,
 				703052D528112405004FD5D2 /* Dictionary.swift */,
 				70B61CFA283C9FD60097E5A6 /* WordsApi.swift */,
@@ -263,7 +276,7 @@
 		7044F388280C74C0007B6DDE /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				FF0DC1472E25700300CBD1B3 /* LocalAIService.swift */,
+				FF0DC1472E25700300CBD1B3 /* AIDictionaryService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -275,6 +288,7 @@
 				701BE0D92885DB3A0093CCC8 /* VocabieTests */,
 				707D1E6C27DDD02E0020557E /* Products */,
 				709F859D2838166E002CC860 /* Frameworks */,
+				FFD264682E2772F100262204 /* apptics-config.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -363,6 +377,7 @@
 		708EC4B427F3005600B91A42 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FFD2647D2E27C32200262204 /* AIChatBot */,
 				709D3B81287C5EE0008F8802 /* Resources */,
 				7021B53E284011DE00DB8EBB /* Dictionary */,
 				703311B6282A50A700F2E17E /* Phrases */,
@@ -438,9 +453,14 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				FFD2647D2E27C32200262204 /* AIChatBot */,
+			);
 			name = Vocabie;
 			packageProductDependencies = (
 				FF0DC1452E25687E00CBD1B3 /* SwiftCSV */,
+				FFD2646B2E2773FA00262204 /* AppticsAnalytics */,
+				FFD2646D2E2773FA00262204 /* AppticsExtension */,
 			);
 			productName = Mozhi;
 			productReference = 707D1E6B27DDD02E0020557E /* Vocabie.app */;
@@ -476,6 +496,7 @@
 			mainGroup = 707D1E6227DDD02E0020557E;
 			packageReferences = (
 				FF0DC1442E25687E00CBD1B3 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+				FFD2646A2E2773FA00262204 /* XCRemoteSwiftPackageReference "Apptics-SP" */,
 			);
 			productRefGroup = 707D1E6C27DDD02E0020557E /* Products */;
 			projectDirPath = "";
@@ -500,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70CABBF6283EB2E00030B9C6 /* websters_dictionary.json in Resources */,
+				FFD264692E2772F100262204 /* apptics-config.plist in Resources */,
 				70D91AA72846A0B200626632 /* word-list.json in Resources */,
 				7098F9062821AB3100FCBD24 /* LaunchScreen.storyboard in Resources */,
 				70330669287B4E730083C34D /* common-idioms.csv in Resources */,
@@ -528,13 +550,14 @@
 				703311B8282A50E300F2E17E /* ViewUserSentence.swift in Sources */,
 				700BD178282058770069967F /* SplashScreen.swift in Sources */,
 				70BA45DB281B13FC00F112D0 /* ViewUserWord.swift in Sources */,
+				FFD2647C2E2788FB00262204 /* WordLookupView.swift in Sources */,
 				70DFA4C827F8B2E4007FADB1 /* AddUserPhraseView.swift in Sources */,
 				702584E4282CB5C200B6FF20 /* EditPhrase.swift in Sources */,
 				709D3B7C287C4736008F8802 /* Importer.swift in Sources */,
 				70564F8427F5AAEE00EBA186 /* AddUserSentenceView.swift in Sources */,
 				70DFA4C727F8B2E4007FADB1 /* UserPhraseList.swift in Sources */,
 				701172922815BFDC00B86B45 /* PickDefinitionHome.swift in Sources */,
-				FF0DC1482E25700D00CBD1B3 /* LocalAIService.swift in Sources */,
+				FF0DC1482E25700D00CBD1B3 /* AIDictionaryService.swift in Sources */,
 				707D1E7E27DDE4300020557E /* VocabieModel.xcdatamodeld in Sources */,
 				7013929727FC01FB00DA7DDF /* Global.swift in Sources */,
 				706FE9C22840862B00A8A1C5 /* TamilApi.swift in Sources */,
@@ -874,6 +897,14 @@
 				minimumVersion = 0.10.0;
 			};
 		};
+		FFD2646A2E2773FA00262204 /* XCRemoteSwiftPackageReference "Apptics-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zoho/Apptics-SP";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -881,6 +912,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF0DC1442E25687E00CBD1B3 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
 			productName = SwiftCSV;
+		};
+		FFD2646B2E2773FA00262204 /* AppticsAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFD2646A2E2773FA00262204 /* XCRemoteSwiftPackageReference "Apptics-SP" */;
+			productName = AppticsAnalytics;
+		};
+		FFD2646D2E2773FA00262204 /* AppticsExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFD2646A2E2773FA00262204 /* XCRemoteSwiftPackageReference "Apptics-SP" */;
+			productName = AppticsExtension;
 		};
 /* End XCSwiftPackageProductDependency section */
 

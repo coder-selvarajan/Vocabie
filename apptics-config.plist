@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>D99F6FF5AFA7AC5A2B5389FEEADBE53EEB289E389A82ABBE45EB388DB852078D</string>
+	<key>BUNDLE_ID</key>
+	<string>in.selvarajan.vocabie</string>
+	<key>SERVER_URL</key>
+	<string>https://sdk-apptics.zoho.com</string>
+</dict>
+</plist>
