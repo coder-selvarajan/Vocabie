@@ -7,10 +7,31 @@
 
 import SwiftUI
 
+struct ChatMessage {
+    let id = UUID()
+    let text: String
+    let isUser: Bool
+}
+
 struct AIEnglishChatbotView: View {
     @State private var messageText = ""
-    @State private var responses: [String] = []
+    @State private var messages: [ChatMessage] = []
     @State private var aiService = AIDictionaryService()
+    @State private var showingPromptsModal = false
+    @FocusState private var isTextFieldFocused: Bool
+    
+    private let usefulPrompts = [
+        "What's the difference between 'affect' and 'effect'?",
+        "How do I use 'have been' vs 'had been'?",
+        "Explain the meaning of 'break the ice'",
+        "What are some synonyms for 'important'?",
+        "How do I form questions in past perfect tense?",
+        "What's the difference between 'its' and 'it's'?",
+        "Explain the idiom 'piece of cake'",
+        "How do I use 'used to' vs 'would' for past habits?",
+        "What are some formal ways to say 'very good'?",
+        "How do I use modal verbs like 'should' and 'must'?"
+    ]
     
     var body: some View {
         VStack(spacing: 0) {
@@ -24,7 +45,60 @@ struct AIEnglishChatbotView: View {
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                         
-                        ForEach(Array(responses.enumerated()), id: \.offset) { index, response in
+                        // Top 3 Quick Prompts Section (Always visible)
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Quick prompts:")
+                                .font(.headline)
+                                .foregroundColor(.primary)
+                                .padding(.horizontal, 16)
+                            
+                            VStack(spacing: 8) {
+                                ForEach(Array(usefulPrompts.prefix(3)), id: \.self) { prompt in
+                                    Button(action: {
+                                        messageText = prompt
+                                        isTextFieldFocused = true
+                                    }) {
+                                        HStack {
+                                            Text(prompt)
+                                                .font(.subheadline)
+                                                .multilineTextAlignment(.leading)
+                                            Spacer()
+                                            Image(systemName: "chevron.right")
+                                                .font(.caption)
+                                                .foregroundColor(.gray.opacity(0.5))
+                                        }
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                        .background(Color.indigo.opacity(0.05))
+                                        .cornerRadius(8)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                                        )
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
+                                }
+                            }
+                            .padding(.horizontal, 16)
+                            
+                            // "More prompts..." button
+                            Button(action: {
+                                showingPromptsModal = true
+                            }) {
+                                HStack {
+                                    Text("More prompts...")
+                                        .font(.body)
+                                        .foregroundColor(.indigo)
+                                    Image(systemName: "chevron.right")
+                                        .font(.caption2)
+                                        .foregroundColor(.indigo)
+                                }
+                            }
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 30)
+                        }
+                        
+                        ForEach(Array(messages.enumerated()), id: \.element.id) { index, message in
                             VStack(alignment: .leading, spacing: 0) {
                                 if index > 0 {
                                     Divider()
@@ -32,17 +106,35 @@ struct AIEnglishChatbotView: View {
                                         .padding(.vertical, 16)
                                 }
                                 
-                                MarkdownText(response)
+                                if message.isUser {
+                                    // User message
+                                    HStack {
+                                        Spacer()
+                                        Text(message.text)
+                                            .font(.body)
+                                            .foregroundColor(.white)
+                                            .padding(.horizontal, 16)
+                                            .padding(.vertical, 10)
+                                            .background(Color.indigo)
+                                            .cornerRadius(18)
+                                            .frame(maxWidth: .infinity * 0.8, alignment: .trailing)
+                                    }
                                     .padding(.horizontal, 16)
-                                    .padding(.bottom, index == responses.count - 1 ? 16 : 0)
+                                    .padding(.bottom, 8)
+                                } else {
+                                    // AI response
+                                    MarkdownText(message.text)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, index == messages.count - 1 ? 16 : 0)
+                                }
                             }
-                            .id(index)
+                            .id(message.id)
                         }
                         
                         // Show streaming response
                         if aiService.isAIResponding {
                             VStack(alignment: .leading, spacing: 0) {
-                                if !responses.isEmpty {
+                                if !messages.isEmpty {
                                     Divider()
                                         .background(Color.gray.opacity(0.3))
                                         .padding(.vertical, 16)
@@ -67,9 +159,11 @@ struct AIEnglishChatbotView: View {
                             .id("streaming")
                         }
                     }
-                    .onChange(of: responses.count) { _ in
+                    .onChange(of: messages.count) { _ in
                         withAnimation(.easeInOut(duration: 0.3)) {
-                            proxy.scrollTo(responses.count - 1, anchor: .bottom)
+                            if let lastMessage = messages.last {
+                                proxy.scrollTo(lastMessage.id, anchor: .bottom)
+                            }
                         }
                     }
                     .onChange(of: aiService.isAIResponding) { responding in
@@ -101,6 +195,7 @@ struct AIEnglishChatbotView: View {
                     TextField("Type your message...", text: $messageText, axis: .vertical)
                         .textFieldStyle(PlainTextFieldStyle())
                         .lineLimit(1...4)
+                        .focused($isTextFieldFocused)
                         .onSubmit {
                             sendMessage()
                         }
@@ -132,14 +227,28 @@ struct AIEnglishChatbotView: View {
                     Image(systemName: "ellipsis.message")
                         .font(.headline)
                     Spacer()
-                }.foregroundStyle(.indigo)
+                }
             }
+        }
+        .sheet(isPresented: $showingPromptsModal) {
+            PromptsModalView(
+                prompts: usefulPrompts,
+                onPromptSelected: { prompt in
+                    messageText = prompt
+                    showingPromptsModal = false
+                    isTextFieldFocused = true
+                }
+            )
         }
     }
     
     private func sendMessage() {
         let trimmedMessage = messageText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedMessage.isEmpty && !aiService.isAIResponding else { return }
+        
+        // Add user message to messages array
+        let userMessage = ChatMessage(text: trimmedMessage, isUser: true)
+        messages.append(userMessage)
         
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 
@@ -152,14 +261,60 @@ struct AIEnglishChatbotView: View {
             do {
                 try await aiService.generateResponse(for: trimmedMessage)
                 
-                // Add the completed response to the responses array
+                // Add the completed response to the messages array
                 await MainActor.run {
-                    responses.append(aiService.responseText)
+                    let aiMessage = ChatMessage(text: aiService.responseText, isUser: false)
+                    messages.append(aiMessage)
                 }
             } catch {
                 // Handle error
                 await MainActor.run {
-                    responses.append("Sorry, I encountered an error: \(error.localizedDescription)")
+                    /*
+                    let errorMessage = ChatMessage(text: "Sorry, I encountered an error: \(error.localizedDescription)", isUser: false)
+                    */
+                    let errorMessage = ChatMessage(text: "Sorry, I encountered an error. Please try again later.", isUser: false)
+                    messages.append(errorMessage)
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Prompts Modal View
+struct PromptsModalView: View {
+    let prompts: [String]
+    let onPromptSelected: (String) -> Void
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(prompts, id: \.self) { prompt in
+                    Button(action: {
+                        onPromptSelected(prompt)
+                    }) {
+                        HStack {
+                            Text(prompt)
+                                .font(.body)
+                                .foregroundColor(.primary)
+                                .multilineTextAlignment(.leading)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.gray.opacity(0.5))
+                        }
+                        .padding(.vertical, 4)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+            }
+            .navigationTitle("Select a Prompt")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Close") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
             }
         }
