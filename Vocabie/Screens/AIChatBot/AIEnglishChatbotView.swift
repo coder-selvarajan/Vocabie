@@ -21,16 +21,30 @@ struct AIEnglishChatbotView: View {
     @FocusState private var isTextFieldFocused: Bool
     
     private let usefulPrompts = [
-        "What's the difference between 'affect' and 'effect'?",
-        "How do I use 'have been' vs 'had been'?",
-        "Explain the meaning of 'break the ice'",
-        "What are some synonyms for 'important'?",
-        "How do I form questions in past perfect tense?",
-        "What's the difference between 'its' and 'it's'?",
-        "Explain the idiom 'piece of cake'",
-        "How do I use 'used to' vs 'would' for past habits?",
-        "What are some formal ways to say 'very good'?",
-        "How do I use modal verbs like 'should' and 'must'?"
+        "Give me 10 popular words with meaning and example usage for an intermediate learner.",
+        "What are 5 advanced English words I can use in a business email, with examples?",
+        "Suggest 10 verbs I can use instead of “get” in different situations.",
+        "Give me 10 commonly confused word pairs and explain the difference.",
+        "List 5 adjectives to describe people positively, with sentence examples.",
+
+        "Explain when to use “much” vs “many” with examples.",
+        "What are 5 common grammar mistakes learners make, and how to avoid them?",
+        "Show me how to convert active voice to passive voice with 3 examples.",
+        "How do I use modal verbs like “could,” “should,” and “would”?",
+        "Give me 5 sentence examples using the present perfect tense.",
+
+        "Teach me 5 polite ways to ask for help in English.",
+        "Give me a short conversation between two people meeting for the first time.",
+        "What are 10 useful phrases I can use while shopping in English?",
+        "How do I respond to small talk like “How’s it going?”",
+        "Create a dialogue between a customer and waiter at a restaurant.",
+
+        "What are 5 commonly used English idioms and their meanings?",
+        "Explain 5 useful phrasal verbs related to travel with examples.",
+        "What’s the meaning of “break the ice” and how can I use it in a sentence?",
+
+        "Test me with 5 fill-in-the-blank sentences using intermediate vocabulary.",
+        "Give me a daily word with meaning, synonyms, antonyms, and example usage."
     ]
     
     var body: some View {
@@ -229,6 +243,17 @@ struct AIEnglishChatbotView: View {
                     Spacer()
                 }
             }
+            // Add a toolbar button to open the prompts popup
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showingPromptsModal = true
+                }) {
+                    Image(systemName: "list.bullet")
+                        .font(.title2)
+                        .foregroundColor(.indigo)
+                        .accessibilityLabel("Show helpful prompts")
+                }
+            }
         }
         .sheet(isPresented: $showingPromptsModal) {
             PromptsModalView(
@@ -239,6 +264,7 @@ struct AIEnglishChatbotView: View {
                     isTextFieldFocused = true
                 }
             )
+            .preferredColorScheme(.light)
         }
     }
     
