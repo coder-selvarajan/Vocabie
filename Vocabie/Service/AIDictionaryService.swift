@@ -94,9 +94,15 @@ class AIDictionaryService {
     var responseText: String = ""
     
     init() {
+        /*
         let instructions = """
-            You are a helpful, friendly, and accurate English teacher cum dictionary. You will help learning English in intuitive easy way. Keep your answers concise, and easy to understand for a beginner English learner.
+            You are a helpful, friendly, and accurate English dictionary. You will help learning English in intuitive easy way. Keep your answers concise, and easy to understand for a beginner English learner.
             """
+        */
+        
+        let instructions = """
+        You are a helpful, friendly English learning assistant. You help users learn and understand English in an intuitive, easy way. Whether answering dictionary queries, explaining grammar, clarifying usage, or addressing any English-related questions, keep your responses concise and easy to understand for English learners of all levels. Provide clear explanations, examples when helpful, and encourage learning.
+        """
         session = LanguageModelSession(instructions: instructions)
         
         /*
@@ -106,18 +112,22 @@ class AIDictionaryService {
     }
     
     func fetchDefinition(for word: String) async throws {
+        
+        print("Availability: \(isAIModelavailabile())")
+        
         let prompt = "define '\(word)'."
     
+        print("Fetching definition for \(word)...")
         let result = try await session.respond(
             to: prompt,
             generating: WordDefinition.self,
         )
-        // print(result.content)
+        print(result.content)
         wordDefinition = result.content
     }
     
     func generateResponse(for text: String) async throws {
-//        responseText = ""
+        responseText = ""
         
         let prompt = "As a English teacher answer this question: \n \(text)"
         let stream = session.streamResponse(to: prompt)
@@ -132,29 +142,31 @@ class AIDictionaryService {
         print("AI answering completed!")
         isAIResponding = false
     }
+    
+    func isAIModelavailabile() -> (Bool, String) {
+        let model = SystemLanguageModel.default
+        
+        switch model.availability {
+            case .available:
+                // Show your intelligence UI.
+                return (true, "")
+            case .unavailable(.deviceNotEligible):
+                // Show an alternative UI.
+                return (false, "The device is not elegible")
+            case .unavailable(.appleIntelligenceNotEnabled):
+                // Ask the person to turn on Apple Intelligence.
+                return (false, "Apple Intelligence is not enabled")
+            case .unavailable(.modelNotReady):
+                // The model isn't ready because it's downloading or because of other system reasons.
+                return (false, "The model is not ready")
+            case .unavailable(_):
+                // The model is unavailable for an unknown reason.
+                return (false, "Model unavailable for an unknown reason")
+        }
+    }
 }
 
-/*
- func isAIModelavailabile() -> (Bool, String) {
-     let model = SystemLanguageModel.default
-     
-     switch model.availability {
-         case .available:
-             // Show your intelligence UI.
-             return (true, "")
-         case .unavailable(.deviceNotEligible):
-             // Show an alternative UI.
-             return (false, "The device is not elegible")
-         case .unavailable(.appleIntelligenceNotEnabled):
-             // Ask the person to turn on Apple Intelligence.
-             return (false, "Apple Intelligence is not enabled")
-         case .unavailable(.modelNotReady):
-             // The model isn't ready because it's downloading or because of other system reasons.
-             return (false, "The model is not ready")
-         case .unavailable(_):
-             // The model is unavailable for an unknown reason.
-             return (false, "Model unavailable for an unknown reason")
-     }
- }
 
- */
+
+
+

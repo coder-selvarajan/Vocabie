@@ -10,7 +10,7 @@ import SwiftUI
 struct AIEnglishChatbotView: View {
     @State private var messageText = ""
     @State private var responses: [String] = []
-    @State private var isLoading = false
+    @State private var aiService = AIDictionaryService()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -18,7 +18,7 @@ struct AIEnglishChatbotView: View {
             ScrollView {
                 ScrollViewReader { proxy in
                     LazyVStack(alignment: .leading, spacing: 0) {
-                        Text("Note: This chatbot uses Apple’s on-device AI, works without an internet connection, and runs only on devices with iOS 26.")
+                        Text("Note: This chatbot uses Apple's on-device AI, works without an internet connection, and runs only on devices with iOS 26.")
                             .padding(.horizontal, 16)
                             .padding(.bottom, 16)
                             .font(.subheadline)
@@ -39,7 +39,8 @@ struct AIEnglishChatbotView: View {
                             .id(index)
                         }
                         
-                        if isLoading {
+                        // Show streaming response
+                        if aiService.isAIResponding {
                             VStack(alignment: .leading, spacing: 0) {
                                 if !responses.isEmpty {
                                     Divider()
@@ -47,17 +48,23 @@ struct AIEnglishChatbotView: View {
                                         .padding(.vertical, 16)
                                 }
                                 
-                                HStack {
-                                    ProgressView()
-                                        .scaleEffect(1)
-                                    Text("AI is thinking...")
-                                        .foregroundColor(.indigo)
-                                        .font(.body)
+                                if aiService.responseText.isEmpty {
+                                    HStack {
+                                        ProgressView()
+                                            .scaleEffect(1)
+                                        Text("AI is thinking...")
+                                            .foregroundColor(.indigo)
+                                            .font(.body)
+                                    }
+                                    .padding(.horizontal, 16)
+                                    .padding(.bottom, 16)
+                                } else {
+                                    MarkdownText(aiService.responseText)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 16)
                                 }
-                                .padding(.horizontal, 16)
-                                .padding(.bottom, 16)
                             }
-                            .id("loading")
+                            .id("streaming")
                         }
                     }
                     .onChange(of: responses.count) { _ in
@@ -65,10 +72,17 @@ struct AIEnglishChatbotView: View {
                             proxy.scrollTo(responses.count - 1, anchor: .bottom)
                         }
                     }
-                    .onChange(of: isLoading) { loading in
-                        if loading {
+                    .onChange(of: aiService.isAIResponding) { responding in
+                        if responding {
                             withAnimation(.easeInOut(duration: 0.3)) {
-                                proxy.scrollTo("loading", anchor: .bottom)
+                                proxy.scrollTo("streaming", anchor: .bottom)
+                            }
+                        }
+                    }
+                    .onChange(of: aiService.responseText) { _ in
+                        if aiService.isAIResponding {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                proxy.scrollTo("streaming", anchor: .bottom)
                             }
                         }
                     }
@@ -81,11 +95,10 @@ struct AIEnglishChatbotView: View {
             // Input Section
             VStack(spacing: 0) {
                 Divider()
-                    .background(Color.gray.opacity(0.3))
+                    .background(Color.gray.opacity(0.5))
                 
                 HStack(spacing: 12) {
                     TextField("Type your message...", text: $messageText, axis: .vertical)
-//                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .textFieldStyle(PlainTextFieldStyle())
                         .lineLimit(1...4)
                         .onSubmit {
@@ -98,10 +111,9 @@ struct AIEnglishChatbotView: View {
                             .foregroundColor(.white)
                             .frame(width: 40, height: 40)
                             .background(Color.indigo)
-//                            .background(messageText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? Color.gray : Color.blue)
                             .clipShape(Circle())
                     }
-                    .disabled(messageText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isLoading)
+                    .disabled(messageText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || aiService.isAIResponding)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
@@ -109,7 +121,6 @@ struct AIEnglishChatbotView: View {
             }
         }
         .background(Color(.systemGroupedBackground))
-//        .navigationTitle(Text("AI Chatbot 💬"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.principal) {
@@ -122,75 +133,36 @@ struct AIEnglishChatbotView: View {
                         .font(.headline)
                     Spacer()
                 }.foregroundStyle(.indigo)
-                
             }
         }
     }
     
     private func sendMessage() {
         let trimmedMessage = messageText.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmedMessage.isEmpty && !isLoading else { return }
+        guard !trimmedMessage.isEmpty && !aiService.isAIResponding else { return }
         
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 
         messageText = ""
-        isLoading = true
         
-        // Simulate AI response (replace with actual AI API call)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            let mockResponse = generateMockResponse(for: trimmedMessage)
-            responses.append(mockResponse)
-            isLoading = false
+        // Reset response text before starting new response
+        aiService.responseText = ""
+        
+        Task {
+            do {
+                try await aiService.generateResponse(for: trimmedMessage)
+                
+                // Add the completed response to the responses array
+                await MainActor.run {
+                    responses.append(aiService.responseText)
+                }
+            } catch {
+                // Handle error
+                await MainActor.run {
+                    responses.append("Sorry, I encountered an error: \(error.localizedDescription)")
+                }
+            }
         }
-    }
-    
-    private func generateMockResponse(for message: String) -> String {
-        let mockResponses = [
-            """
-            # Welcome to AI English Chatbot!
-            
-            Thank you for your message: "*\(message)*"
-            
-            I'm here to help you with:
-            - **Grammar correction**
-            - **Vocabulary expansion**
-            - **Writing assistance**
-            - **Language practice**
-            
-            How can I assist you today?
-            """,
-            """
-            ### Response to: "\(message)"
-            
-            That's an interesting question! Here's what I think:
-            
-            1. **First point**: This is important because...
-            2. **Second point**: Consider this aspect...
-            3. **Third point**: Finally, remember that...
-            
-            > *"The limits of my language mean the limits of my world."* - Ludwig Wittgenstein
-            
-            Would you like me to elaborate on any of these points?
-            """,
-            """
-            ### Analysis of: "\(message)"
-            
-            Let me break this down for you:
-            
-            - ✅ **Correct usage**: Well done!
-            - ⚠️ **Suggestion**: You might consider...
-            - 📝 **Alternative**: Another way to say this would be...
-            
-            ```
-            Example: \(message)
-            Improved: [Your improved version here]
-            ```
-            
-            Keep practicing! You're doing great.
-            """
-        ]
-        
-        return mockResponses.randomElement() ?? "Thank you for your message: \(message)"
     }
 }
 
