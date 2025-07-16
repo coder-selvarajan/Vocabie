@@ -111,7 +111,7 @@ struct PickMeaning: View {
                             }
                         }
                         .background(Color(hex: "ececec"))
-                        .cornerRadius(10)
+                        .cornerRadius(20)
                         .padding(.horizontal, 15)
                         
                         
@@ -162,7 +162,7 @@ struct PickMeaning: View {
                         .foregroundColor( showResult ? .white : .gray)
                         .frame (height: 55)
                         .background (Color.indigo)
-                        .cornerRadius(10)
+                        .cornerRadius(20)
                     })
                     .padding()
                     .disabled(!showResult)
@@ -226,7 +226,7 @@ struct PickMeaning: View {
                         .foregroundColor(.white)
                         .frame (height: 55)
                         .background (Color.indigo)
-                        .cornerRadius(10)
+                        .cornerRadius(20)
                     }
                     Spacer()
                 }

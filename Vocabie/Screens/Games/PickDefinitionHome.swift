@@ -32,7 +32,7 @@ struct PickDefinitionHome: View {
                     .padding(10)
                     .foregroundColor(.white)
                     .background (Color.indigo)
-                    .cornerRadius(10)
+                    .cornerRadius(20)
                     .padding(.horizontal)
                 })
             
@@ -53,7 +53,7 @@ struct PickDefinitionHome: View {
                     .padding(10)
                     .foregroundColor(.white)
                     .background (Color.blue)
-                    .cornerRadius(10)
+                    .cornerRadius(20)
                     .padding(.horizontal)
                 })
 

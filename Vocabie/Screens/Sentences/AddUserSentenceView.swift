@@ -54,7 +54,7 @@ struct AddUserSentenceView: View {
                             .frame (height: 55)
                             .frame (maxWidth: .infinity)
                             .background (Color.blue)
-                             .cornerRadius(10)
+                             .cornerRadius(20)
                     })
                 }
             }

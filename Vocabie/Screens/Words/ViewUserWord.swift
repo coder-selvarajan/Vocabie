@@ -50,7 +50,7 @@ struct ViewUserWord: View {
                     .frame (height: 55)
                     .frame (maxWidth: .infinity)
                     .background (Color.indigo)
-                    .cornerRadius(10)
+                    .cornerRadius(20)
             }.padding(.top, 25)
             Spacer()
         }

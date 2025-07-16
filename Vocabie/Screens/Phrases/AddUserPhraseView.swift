@@ -71,7 +71,7 @@ struct AddUserPhraseView: View {
                             .frame (height: 55)
                             .frame (maxWidth: .infinity)
                             .background (Color.cyan)
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                     })
                 }
                 

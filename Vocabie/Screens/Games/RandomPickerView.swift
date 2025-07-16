@@ -40,6 +40,9 @@ struct RandomPickerView: View {
         VStack {
             Spacer()
             
+            Text("Random words from your vocabulary is displayed here for you to guess the meaning. ")
+                .padding()
+            /*
             Picker("", selection: $type) {
                 Text("Word")
                     .tag(1)
@@ -54,19 +57,19 @@ struct RandomPickerView: View {
                 
                 pickItem()
             })
+            */
             
             FlipView {
                 Text("\(randomVocabulary)")
                     .font(type == 1 ? .title : .title3)
             } back: {
                 Text("\(definition)")
-                    .cornerRadius(10)
+                    .cornerRadius(20)
             }
             if (randomVocabulary != "" && type != 2) {
-                Text("Tap to flip")
-                    .font(.caption)
+                Text("Tap to flip the card")
+                    .font(.subheadline)
                     .padding(.horizontal, 40)
-//                    .padding(.vertical, 10)
                     .foregroundColor(.gray)
             }
             
@@ -86,7 +89,7 @@ struct RandomPickerView: View {
                 .foregroundColor(.white)
                 .frame (height: 55)
                 .background (Color.indigo)
-                .cornerRadius(10)
+                .cornerRadius(20)
             })
             .padding()
             Spacer()
