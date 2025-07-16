@@ -6,13 +6,28 @@
 //
 
 import SwiftUI
+import Apptics
 
 @main
 struct VocabieApp: App {
+//    @State private var dictionaryService = AIDictionaryService()
+    
+    init() {
+        AppticsConfig.default.enableAutomaticCrashTracking = true
+        AppticsConfig.default.enableAutomaticEventTracking = true
+        AppticsConfig.default.enableAutomaticScreenTracking = true
+        AppticsConfig.default.enableAutomaticSessionTracking = true
+        AppticsConfig.default.flushInterval = APFlushInterval.interval10
+        Apptics.initialize(withVerbose: false)
+    }
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
                 .colorScheme(.light)
+                .environment(AIDictionaryService())
+            
+//                .environmentObject(dictionaryService)
 //                .environment(\.colorScheme, .light)
         }
     }
