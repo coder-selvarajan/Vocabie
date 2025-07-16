@@ -7,7 +7,7 @@
 
 import Foundation
 import FoundationModels
-import SwiftUI
+import Observation
 
 @Generable
 enum WordClass: String, Codable, CaseIterable, Identifiable {
@@ -84,55 +84,77 @@ struct WordDefinition: Codable, Equatable {
 //    var id: String
 }
 
+@MainActor
+@Observable
 class AIDictionaryService {
     
-    static func isAIModelavailabile() -> (Bool, String) {
-        let model = SystemLanguageModel.default
-        
-        switch model.availability {
-            case .available:
-                // Show your intelligence UI.
-                return (true, "")
-            case .unavailable(.deviceNotEligible):
-                // Show an alternative UI.
-                return (false, "The device is not elegible")
-            case .unavailable(.appleIntelligenceNotEnabled):
-                // Ask the person to turn on Apple Intelligence.
-                return (false, "Apple Intelligence is not enabled")
-            case .unavailable(.modelNotReady):
-                // The model isn't ready because it's downloading or because of other system reasons.
-                return (false, "The model is not ready")
-            case .unavailable(_):
-                // The model is unavailable for an unknown reason.
-                return (false, "Model unavailable for an unknown reason")
-        }
-    }
+    let session: LanguageModelSession
+    var wordDefinition: WordDefinition?
+    var isAIResponding: Bool = false
+    var responseText: String = ""
     
-    static func fetchDefinition(for word: String) async -> WordDefinition {
-        // Check the availability
-        if isAIModelavailabile().0 == false {
-            return WordDefinition(word: "Model unavailable", meaning: [], examples: [])
-        }
-        
-        let prompt = "define '\(word)'."
+    init() {
         let instructions = """
-            You are a helpful and accurate English dictionary. When a user provides a word, return its meaning, part of speech, example sentence usage, and related words. Keep the response concise, and easy to understand for intermediate English learners.
+            You are a helpful, friendly, and accurate English teacher cum dictionary. You will help learning English in intuitive easy way. Keep your answers concise, and easy to understand for a beginner English learner.
             """
+        session = LanguageModelSession(instructions: instructions)
+        
+        /*
         let assistant = SystemLanguageModel.default
         let session = LanguageModelSession(model: assistant, instructions: instructions)
-        do {
-            let result = try await session.respond(
-                to: prompt,
-                generating: WordDefinition.self,
-//                options: options,
-            )
-            
-            return result.content
-            
-        } catch {
-            print("Error: \(error)")
+         */
+    }
+    
+    func fetchDefinition(for word: String) async throws {
+        let prompt = "define '\(word)'."
+    
+        let result = try await session.respond(
+            to: prompt,
+            generating: WordDefinition.self,
+        )
+        // print(result.content)
+        wordDefinition = result.content
+    }
+    
+    func generateResponse(for text: String) async throws {
+//        responseText = ""
+        
+        let prompt = "As a English teacher answer this question: \n \(text)"
+        let stream = session.streamResponse(to: prompt)
+        
+        print("AI answering begins!")
+        isAIResponding = true
+        
+        for try await partial in stream {
+            responseText = partial
         }
-
-        return WordDefinition(word: "Error", meaning: [], examples: [])
+        
+        print("AI answering completed!")
+        isAIResponding = false
     }
 }
+
+/*
+ func isAIModelavailabile() -> (Bool, String) {
+     let model = SystemLanguageModel.default
+     
+     switch model.availability {
+         case .available:
+             // Show your intelligence UI.
+             return (true, "")
+         case .unavailable(.deviceNotEligible):
+             // Show an alternative UI.
+             return (false, "The device is not elegible")
+         case .unavailable(.appleIntelligenceNotEnabled):
+             // Ask the person to turn on Apple Intelligence.
+             return (false, "Apple Intelligence is not enabled")
+         case .unavailable(.modelNotReady):
+             // The model isn't ready because it's downloading or because of other system reasons.
+             return (false, "The model is not ready")
+         case .unavailable(_):
+             // The model is unavailable for an unknown reason.
+             return (false, "Model unavailable for an unknown reason")
+     }
+ }
+
+ */
