@@ -27,9 +27,9 @@ struct HomeView: View {
                     // Show word list
                     self.showList = 1
                 }, label: {
-                    Text("View All ")
-                        .foregroundColor(.blue)
-                        .padding(.bottom, 7)
+                    Text("View all")
+                        .padding(.bottom, 10)
+                    
                 })
             }
             else {
@@ -45,9 +45,8 @@ struct HomeView: View {
                     // Show sentence list
                     self.showList = 2
                 }, label: {
-                    Text("View All ")
-                        .foregroundColor(.blue)
-                        .padding(.bottom, 7)
+                    Text("View all")
+                        .padding(.bottom, 10)
                 })
             }
             else {
@@ -63,9 +62,8 @@ struct HomeView: View {
                     // Show phrase list
                     self.showList = 3
                 }, label: {
-                    Text("View All ")
-                        .foregroundColor(.blue)
-                        .padding(.bottom, 7)
+                    Text("View all ")
+                        .padding(.bottom, 10)
                 })
             }
             else {
@@ -169,7 +167,7 @@ struct HomeView: View {
                                             self.selection = 103
                                         }) {
                                             VStack(alignment: .center, spacing: 15) {
-                                                Text("Ph.v")
+                                                Text("Ph")
                                                     .font(.subheadline)
                                                     .foregroundColor(.white)
                                                     .shadow(color: Color.black.opacity(0.4),
@@ -197,7 +195,7 @@ struct HomeView: View {
                                             self.selection = 104
                                         }) {
                                             VStack(alignment: .center, spacing: 15) {
-                                                Text("Id")
+                                                Text("Idi")
                                                     .font(.subheadline)
                                                     .foregroundColor(.white)
                                                     .shadow(color: Color.black.opacity(0.4),
