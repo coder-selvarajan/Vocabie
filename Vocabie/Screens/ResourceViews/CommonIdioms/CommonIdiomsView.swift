@@ -25,9 +25,9 @@ struct CommonIdiomsView: View {
                     })
             }
         }
-        .listStyle(.grouped)
+        .searchable(text: $searchText, prompt: "Search idioms...")
         .navigationTitle(Text("Common Idioms"))
-        .searchable(text: $searchText)
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             commonIdiomsListVM.getAllCommonPhrases()
         }

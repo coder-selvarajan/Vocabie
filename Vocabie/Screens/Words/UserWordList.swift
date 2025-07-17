@@ -37,7 +37,6 @@ struct UserWordList: View {
             }
             .onDelete(perform: delete)
         }
-        .listStyle(.grouped)
         .navigationTitle(Text("Word List"))
         .searchable(text: $searchText)
         .onAppear {

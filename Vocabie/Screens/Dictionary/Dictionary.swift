@@ -434,6 +434,8 @@ struct Dictionary: View {
                 }
             }
         }
+        .navigationTitle("Vocabie Dictionary")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

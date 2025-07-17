@@ -113,81 +113,88 @@ struct HomeView: View {
                         Section() { //header: Text("Resources").padding(.horizontal, 15)) {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(alignment: .top, spacing: 25) {
-                                    Button {
-                                        //
-                                    } label: {
-                                        VStack(alignment: .center, spacing: 15) {
-                                            Text("Verb")
-                                                .font(.subheadline)
-                                                .foregroundColor(.white)
-                                                .shadow(color: Color.black.opacity(0.4),
-                                                        radius: 2,
-                                                        x: 3,
-                                                        y: 3)
-                                                .padding(23)
-                                                .background(
-                                                    LinearGradient(gradient: Gradient(colors: [.indigo, .indigo.opacity(0.8), .indigo.opacity(0.4)]), startPoint: .topLeading , endPoint: .bottomTrailing)
-                                                )
-                                                .clipShape(Circle())
-                                            
-                                            Text("Intermediate \nVerbs")
-                                                .font(.subheadline)
-                                                .foregroundColor(.primary)
-                                        }
-                                    }
-                                    
-                                    Button {
-                                        //
-                                    } label: {
-                                        VStack(alignment: .center, spacing: 15) {
-                                            Text("Adj")
-                                                .font(.subheadline)
-                                                .foregroundColor(.white)
-                                                .shadow(color: Color.black.opacity(0.4),
-                                                        radius: 2,
-                                                        x: 3,
-                                                        y: 3)
-                                                .padding(23)
-                                                .background(
-                                                    LinearGradient(gradient: Gradient(colors: [.blue, .blue.opacity(0.8), .blue.opacity(0.4)]), startPoint: .topLeading , endPoint: .bottomTrailing)
-                                                )
-                                                .clipShape(Circle())
-                                            
-                                            Text("Common \nAdjectives")
-                                                .font(.subheadline)
-                                                .foregroundColor(.primary)
-                                            
-                                        }
-                                    }
-                                    
-                                    Button {
-                                        //
-                                    } label: {
-                                        VStack(alignment: .center, spacing: 15) {
-                                            Text("Ph")
-                                                .font(.subheadline)
-                                                .foregroundColor(.white)
-                                                .shadow(color: Color.black.opacity(0.4),
-                                                        radius: 2,
-                                                        x: 3,
-                                                        y: 3)
-                                                .padding(23)
-                                                .background(
-                                                    LinearGradient(gradient: Gradient(colors: [.cyan, .cyan.opacity(0.8), .cyan.opacity(0.4)]), startPoint: .topLeading , endPoint: .bottomTrailing)
-                                                )
-                                                .clipShape(Circle())
-                                            
-                                            Text("Useful \nPhrases")
-                                                .font(.subheadline)
-                                                .foregroundColor(.primary)
-                                            
-                                        }
-                                    }
-                                    
-                                    
-                                    NavigationLink(destination: CommonIdiomsView(), tag: 101, selection: $selection) {
+                                    NavigationLink(destination: VerbListView(), tag: 101, selection: $selection) {
                                         Button(action: {
                                             self.selection = 101
+                                        }) {
+                                            VStack(alignment: .center, spacing: 15) {
+                                                Text("Verb")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.white)
+                                                    .shadow(color: Color.black.opacity(0.4),
+                                                            radius: 2,
+                                                            x: 3,
+                                                            y: 3)
+                                                    .padding(23)
+                                                    .background(
+                                                        LinearGradient(gradient: Gradient(colors: [.indigo, .indigo.opacity(0.8), .indigo.opacity(0.4)]), startPoint: .topLeading , endPoint: .bottomTrailing)
+                                                    )
+                                                    .clipShape(Circle())
+                                                
+                                                Text("Intermediate \nVerbs")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.primary)
+                                            }
+                                        }
+                                    }
+                                    
+                                    NavigationLink(destination: AdjectiveListView(), tag: 102, selection: $selection) {
+                                        Button(action: {
+                                            self.selection = 102
+                                        }) {
+                                            VStack(alignment: .center, spacing: 15) {
+                                                Text("Adj")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.white)
+                                                    .shadow(color: Color.black.opacity(0.4),
+                                                            radius: 2,
+                                                            x: 3,
+                                                            y: 3)
+                                                    .padding(23)
+                                                    .background(
+                                                        LinearGradient(gradient: Gradient(colors: [.blue, .blue.opacity(0.8), .blue.opacity(0.4)]), startPoint: .topLeading , endPoint: .bottomTrailing)
+                                                    )
+                                                    .clipShape(Circle())
+                                                
+                                                Text("Common \nAdjectives")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.primary)
+                                            }
+                                        }
+                                    }
+                                    
+                                    
+                                    NavigationLink(destination: PhrasalVerbListView(), tag: 103, selection: $selection) {
+                                        Button(action: {
+                                            self.selection = 103
+                                        }) {
+                                            VStack(alignment: .center, spacing: 15) {
+                                                Text("Ph.v")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.white)
+                                                    .shadow(color: Color.black.opacity(0.4),
+                                                            radius: 2,
+                                                            x: 3,
+                                                            y: 3)
+                                                    .padding(23)
+                                                    .background(
+                                                        LinearGradient(gradient: Gradient(colors: [.cyan, .cyan.opacity(0.8), .cyan.opacity(0.4)]), startPoint: .topLeading , endPoint: .bottomTrailing)
+                                                    )
+                                                    .clipShape(Circle())
+                                                
+                                                Text("Phrasal \nVerbs")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.primary)
+                                                
+                                            }
+                                        }
+                                    }
+                                    
+                                    
+                                    
+                                    NavigationLink(destination: CommonIdiomsView(), tag: 104, selection: $selection) {
+                                        Button(action: {
+                                            self.selection = 104
                                         }) {
                                             VStack(alignment: .center, spacing: 15) {
                                                 Text("Id")
@@ -244,7 +251,7 @@ struct HomeView: View {
                                             self.selection = 12
                                         }) {
                                             VStack(alignment: SwiftUI.HorizontalAlignment.leading){
-                                                Text("Hunt Definitions")
+                                                Text("Pick Definitions")
                                                     .font(.callout).bold()
                                                     .foregroundColor(.white)
                                                 Text("by word").font(.footnote).foregroundColor(.white.opacity(0.6))
@@ -384,12 +391,16 @@ struct HomeView: View {
 //            .navigationTitle("Vocabie")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                
                 ToolbarItem(placement: ToolbarItemPlacement.topBarLeading) {
-                    HStack {
-                        Image(systemName: "info")
-                            .font(.subheadline)
+                    NavigationLink(destination: AboutVocabieView()) {
+                        HStack {
+                            Image(systemName: "info")
+                                .font(.subheadline)
+                        }
                     }
                 }
+                
                 ToolbarItem(placement: ToolbarItemPlacement.principal) {
                     HStack {
                         Text("Vocabie")
@@ -399,6 +410,7 @@ struct HomeView: View {
                         Image(systemName: "sparkles")
                             .font(.headline)
                         Spacer()
+                        
                     }
                     
 //                    NavigationLink(destination: ImportView()) {
@@ -407,14 +419,15 @@ struct HomeView: View {
                 }
                 
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                    NavigationLink(destination: AIEnglishChatbotView()) {
-                        HStack(spacing: 5) {
-                            Text("Ask AI")
-                            Image(systemName: "ellipsis.message")
-                        }.font(.headline)
-                    }
                     
-                    
+                        NavigationLink(destination: AIEnglishChatbotView()) {
+                            HStack(spacing: 5) {
+                                Text("Ask AI")
+                                Image(systemName: "ellipsis.message")
+                            }.font(.headline)
+                        }
+                        
+                        
 //                    Button(action: {
 //                        if appTheme == "dark" {
 //                            UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)

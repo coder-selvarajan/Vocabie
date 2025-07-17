@@ -1,0 +1,902 @@
+[
+  {
+    "id": 1,
+    "adjective": "adorable",
+    "meaning": "very cute or charming",
+    "examples": [
+      "The puppy was simply adorable.",
+      "She has an adorable smile."
+    ]
+  },
+  {
+    "id": 2,
+    "adjective": "adventurous",
+    "meaning": "willing to try new or difficult things",
+    "examples": [
+      "He is adventurous and loves to travel.",
+      "They went on an adventurous hike."
+    ]
+  },
+  {
+    "id": 3,
+    "adjective": "aggressive",
+    "meaning": "ready to attack or confront",
+    "examples": [
+      "The dog was aggressive toward strangers.",
+      "He took an aggressive approach in negotiations."
+    ]
+  },
+  {
+    "id": 4,
+    "adjective": "agreeable",
+    "meaning": "pleasant and easy to get along with",
+    "examples": [
+      "She has an agreeable personality.",
+      "The weather today is quite agreeable."
+    ]
+  },
+  {
+    "id": 5,
+    "adjective": "alert",
+    "meaning": "quick to notice or respond",
+    "examples": [
+      "Stay alert while driving at night.",
+      "The guard remained alert all night."
+    ]
+  },
+  {
+    "id": 6,
+    "adjective": "alive",
+    "meaning": "living; not dead",
+    "examples": [
+      "The plant is still alive.",
+      "She felt more alive than ever."
+    ]
+  },
+  {
+    "id": 7,
+    "adjective": "amused",
+    "meaning": "finding something funny or entertaining",
+    "examples": [
+      "He was amused by the cartoon.",
+      "They looked amused by the joke."
+    ]
+  },
+  {
+    "id": 8,
+    "adjective": "angry",
+    "meaning": "feeling strong displeasure or rage",
+    "examples": [
+      "He was angry about the delay.",
+      "She gave him an angry look."
+    ]
+  },
+  {
+    "id": 9,
+    "adjective": "annoyed",
+    "meaning": "slightly angry or irritated",
+    "examples": [
+      "She was annoyed by the noise.",
+      "He looked annoyed at the interruption."
+    ]
+  },
+  {
+    "id": 10,
+    "adjective": "annoying",
+    "meaning": "causing irritation",
+    "examples": [
+      "That buzzing sound is annoying.",
+      "He's an annoying coworker."
+    ]
+  },
+  {
+    "id": 11,
+    "adjective": "anxious",
+    "meaning": "experiencing worry or nervousness",
+    "examples": [
+      "She felt anxious before the interview.",
+      "He was anxious about the test results."
+    ]
+  },
+  {
+    "id": 12,
+    "adjective": "arrogant",
+    "meaning": "having an exaggerated sense of one's abilities",
+    "examples": [
+      "He sounded arrogant in the meeting.",
+      "The arrogant student refused to listen."
+    ]
+  },
+  {
+    "id": 13,
+    "adjective": "ashamed",
+    "meaning": "feeling shame or guilt",
+    "examples": [
+      "He was ashamed of his behavior.",
+      "She felt ashamed after the argument."
+    ]
+  },
+  {
+    "id": 14,
+    "adjective": "attractive",
+    "meaning": "pleasing to the senses or mind",
+    "examples": [
+      "The design is very attractive.",
+      "She has an attractive personality."
+    ]
+  },
+  {
+    "id": 15,
+    "adjective": "average",
+    "meaning": "typical or usual",
+    "examples": [
+      "He is of average height.",
+      "The score was just average."
+    ]
+  },
+  {
+    "id": 16,
+    "adjective": "awful",
+    "meaning": "extremely bad or unpleasant",
+    "examples": [
+      "The weather was awful yesterday.",
+      "That was an awful movie."
+    ]
+  },
+  {
+    "id": 17,
+    "adjective": "beautiful",
+    "meaning": "pleasing to the senses or mind",
+    "examples": [
+      "She has a beautiful voice.",
+      "The sunset was beautiful."
+    ]
+  },
+  {
+    "id": 18,
+    "adjective": "better",
+    "meaning": "of higher quality or more desirable",
+    "examples": [
+      "This option is better than the last.",
+      "She feels better now."
+    ]
+  },
+  {
+    "id": 19,
+    "adjective": "bewildered",
+    "meaning": "confused or puzzled",
+    "examples": [
+      "He looked bewildered after reading the instructions.",
+      "She was bewildered by the question."
+    ]
+  },
+  {
+    "id": 20,
+    "adjective": "bloody",
+    "meaning": "covered in or involving blood",
+    "examples": [
+      "He had a bloody nose.",
+      "It was a bloody battle."
+    ]
+  },
+  {
+    "id": 21,
+    "adjective": "blue-eyed",
+    "meaning": "having blue eyes",
+    "examples": [
+      "He is a charming blue-eyed boy.",
+      "She has sparkling blue-eyed charm."
+    ]
+  },
+  {
+    "id": 22,
+    "adjective": "blushing",
+    "meaning": "showing shyness or embarrassment by turning red",
+    "examples": [
+      "She was blushing during the compliment.",
+      "The blushing bride smiled."
+    ]
+  },
+  {
+    "id": 23,
+    "adjective": "bored",
+    "meaning": "feeling weary or uninterested",
+    "examples": [
+      "I\u2019m bored with this show.",
+      "The students looked bored."
+    ]
+  },
+  {
+    "id": 24,
+    "adjective": "brainy",
+    "meaning": "very intelligent",
+    "examples": [
+      "She is a brainy student.",
+      "He gave a brainy answer."
+    ]
+  },
+  {
+    "id": 25,
+    "adjective": "brave",
+    "meaning": "showing courage and not afraid",
+    "examples": [
+      "The brave firefighter saved the child.",
+      "She made a brave decision."
+    ]
+  },
+  {
+    "id": 26,
+    "adjective": "breakable",
+    "meaning": "can be broken easily",
+    "examples": [
+      "Be careful with breakable items.",
+      "This vase is very breakable."
+    ]
+  },
+  {
+    "id": 27,
+    "adjective": "busy",
+    "meaning": "occupied or full of activity",
+    "examples": [
+      "He is busy with meetings all day.",
+      "The mall is busy on weekends."
+    ]
+  },
+  {
+    "id": 28,
+    "adjective": "calm",
+    "meaning": "not showing or feeling nervousness or anger",
+    "examples": [
+      "Try to stay calm during the emergency.",
+      "The sea is calm today."
+    ]
+  },
+  {
+    "id": 29,
+    "adjective": "careful",
+    "meaning": "acting with caution",
+    "examples": [
+      "Be careful when crossing the road.",
+      "He is careful with his words."
+    ]
+  },
+  {
+    "id": 30,
+    "adjective": "cautious",
+    "meaning": "careful to avoid danger",
+    "examples": [
+      "She is cautious while investing money.",
+      "Be cautious of strangers."
+    ]
+  },
+  {
+    "id": 31,
+    "adjective": "charming",
+    "meaning": "very pleasant or attractive",
+    "examples": [
+      "He has a charming smile.",
+      "The old village was small and charming."
+    ]
+  },
+  {
+    "id": 32,
+    "adjective": "cheerful",
+    "meaning": "noticeably happy and optimistic",
+    "examples": [
+      "She is always cheerful at work.",
+      "He greeted us with a cheerful wave."
+    ]
+  },
+  {
+    "id": 33,
+    "adjective": "clever",
+    "meaning": "quick to understand or learn; intelligent",
+    "examples": [
+      "That\u2019s a clever idea!",
+      "She\u2019s a clever student."
+    ]
+  },
+  {
+    "id": 34,
+    "adjective": "cloudy",
+    "meaning": "covered with clouds; not clear",
+    "examples": [
+      "It\u2019s a cloudy afternoon.",
+      "The weather will remain cloudy."
+    ]
+  },
+  {
+    "id": 35,
+    "adjective": "clumsy",
+    "meaning": "awkward in movement or handling things",
+    "examples": [
+      "He\u2019s a bit clumsy in the kitchen.",
+      "She gave a clumsy reply."
+    ]
+  },
+  {
+    "id": 36,
+    "adjective": "colorful",
+    "meaning": "full of bright colors",
+    "examples": [
+      "The painting is very colorful.",
+      "They wore colorful costumes."
+    ]
+  },
+  {
+    "id": 37,
+    "adjective": "combative",
+    "meaning": "ready or eager to fight or argue",
+    "examples": [
+      "He gets combative during debates.",
+      "Her tone was combative."
+    ]
+  },
+  {
+    "id": 38,
+    "adjective": "comfortable",
+    "meaning": "providing physical ease or relaxation",
+    "examples": [
+      "This chair is very comfortable.",
+      "I feel comfortable in this dress."
+    ]
+  },
+  {
+    "id": 39,
+    "adjective": "concerned",
+    "meaning": "worried or anxious",
+    "examples": [
+      "She was concerned about his health.",
+      "I\u2019m concerned that he\u2019s late."
+    ]
+  },
+  {
+    "id": 40,
+    "adjective": "condemned",
+    "meaning": "officially declared to be unfit for use",
+    "examples": [
+      "The building was condemned after the fire.",
+      "They condemned his actions."
+    ]
+  },
+  {
+    "id": 41,
+    "adjective": "confused",
+    "meaning": "unable to think clearly",
+    "examples": [
+      "He looked confused by the instructions.",
+      "I\u2019m confused about the schedule."
+    ]
+  },
+  {
+    "id": 42,
+    "adjective": "cooperative",
+    "meaning": "willing to help or work with others",
+    "examples": [
+      "The team was cooperative.",
+      "She is always cooperative during group projects."
+    ]
+  },
+  {
+    "id": 43,
+    "adjective": "courageous",
+    "meaning": "brave and not afraid of danger",
+    "examples": [
+      "The firefighter was courageous.",
+      "She made a courageous choice."
+    ]
+  },
+  {
+    "id": 44,
+    "adjective": "crazy",
+    "meaning": "mentally unstable or acting wildly",
+    "examples": [
+      "That idea sounds crazy!",
+      "He went crazy with excitement."
+    ]
+  },
+  {
+    "id": 45,
+    "adjective": "creepy",
+    "meaning": "causing an unpleasant feeling of fear or unease",
+    "examples": [
+      "The abandoned house looked creepy at night.",
+      "She had a creepy feeling that someone was watching her."
+    ]
+  },
+  {
+    "id": 46,
+    "adjective": "crowded",
+    "meaning": "full of people or things",
+    "examples": [
+      "The train was crowded during rush hour.",
+      "We avoided the crowded street festival."
+    ]
+  },
+  {
+    "id": 47,
+    "adjective": "cruel",
+    "meaning": "willfully causing pain or suffering",
+    "examples": [
+      "It was cruel to tease the dog.",
+      "The villain in the story was cruel and heartless."
+    ]
+  },
+  {
+    "id": 48,
+    "adjective": "curious",
+    "meaning": "eager to know or learn something",
+    "examples": [
+      "Children are naturally curious.",
+      "I\u2019m curious to see the results."
+    ]
+  },
+  {
+    "id": 49,
+    "adjective": "cute",
+    "meaning": "attractive in a pretty or endearing way",
+    "examples": [
+      "She has a cute puppy.",
+      "That\u2019s a cute outfit."
+    ]
+  },
+  {
+    "id": 50,
+    "adjective": "dangerous",
+    "meaning": "able or likely to cause harm",
+    "examples": [
+      "That\u2019s a dangerous road to drive on.",
+      "He took a dangerous risk."
+    ]
+  },
+  {
+    "id": 51,
+    "adjective": "dead",
+    "meaning": "no longer alive",
+    "examples": [
+      "The plant is dead due to lack of water.",
+      "He found a dead bird on the ground."
+    ]
+  },
+  {
+    "id": 52,
+    "adjective": "defeated",
+    "meaning": "having lost in a battle or contest",
+    "examples": [
+      "The team looked defeated after the game.",
+      "He felt emotionally defeated."
+    ]
+  },
+  {
+    "id": 53,
+    "adjective": "defiant",
+    "meaning": "showing resistance or disobedience",
+    "examples": [
+      "She gave a defiant look to the teacher.",
+      "His defiant behavior got him into trouble."
+    ]
+  },
+  {
+    "id": 54,
+    "adjective": "delightful",
+    "meaning": "causing delight; charming",
+    "examples": [
+      "We had a delightful evening.",
+      "She\u2019s a delightful person to talk to."
+    ]
+  },
+  {
+    "id": 55,
+    "adjective": "depressed",
+    "meaning": "very sad or downhearted",
+    "examples": [
+      "He felt depressed after the breakup.",
+      "She was depressed for weeks."
+    ]
+  },
+  {
+    "id": 56,
+    "adjective": "determined",
+    "meaning": "showing firmness or resolve",
+    "examples": [
+      "She is determined to succeed.",
+      "He looked determined to win."
+    ]
+  },
+  {
+    "id": 57,
+    "adjective": "different",
+    "meaning": "not the same as another",
+    "examples": [
+      "They have different opinions.",
+      "The two paintings are quite different."
+    ]
+  },
+  {
+    "id": 58,
+    "adjective": "difficult",
+    "meaning": "not easy to do or understand",
+    "examples": [
+      "This is a difficult problem.",
+      "She asked a difficult question."
+    ]
+  },
+  {
+    "id": 59,
+    "adjective": "disgusted",
+    "meaning": "feeling or showing strong dislike or disapproval",
+    "examples": [
+      "I was disgusted by his behavior.",
+      "She looked disgusted at the mess."
+    ]
+  },
+  {
+    "id": 60,
+    "adjective": "distinct",
+    "meaning": "clearly different or separate",
+    "examples": [
+      "There is a distinct difference between them.",
+      "She speaks with a distinct accent."
+    ]
+  },
+  {
+    "id": 61,
+    "adjective": "disturbed",
+    "meaning": "showing signs of mental illness or being upset",
+    "examples": [
+      "The news deeply disturbed him.",
+      "He had a disturbed look on his face."
+    ]
+  },
+  {
+    "id": 62,
+    "adjective": "dizzy",
+    "meaning": "having a sensation of spinning and losing balance",
+    "examples": [
+      "I feel dizzy after standing up too fast.",
+      "She got dizzy on the rollercoaster."
+    ]
+  },
+  {
+    "id": 63,
+    "adjective": "doubtful",
+    "meaning": "uncertain or lacking confidence",
+    "examples": [
+      "I'm doubtful about his plan.",
+      "She gave me a doubtful look."
+    ]
+  },
+  {
+    "id": 64,
+    "adjective": "drab",
+    "meaning": "lacking brightness or interest; dull",
+    "examples": [
+      "The office was painted in a drab shade of gray.",
+      "His clothes always look so drab."
+    ]
+  },
+  {
+    "id": 65,
+    "adjective": "dull",
+    "meaning": "lacking interest or excitement",
+    "examples": [
+      "The lecture was dull and unengaging.",
+      "He spoke in a dull monotone."
+    ]
+  },
+  {
+    "id": 66,
+    "adjective": "eager",
+    "meaning": "keen or enthusiastic about something",
+    "examples": [
+      "She was eager to start her new job.",
+      "The children were eager for the trip to begin."
+    ]
+  },
+  {
+    "id": 67,
+    "adjective": "elated",
+    "meaning": "extremely happy or joyful",
+    "examples": [
+      "She was elated with her results.",
+      "He felt elated after hearing the news."
+    ]
+  },
+  {
+    "id": 68,
+    "adjective": "elegant",
+    "meaning": "graceful and stylish in appearance or manner",
+    "examples": [
+      "She wore an elegant gown.",
+      "His writing style is elegant."
+    ]
+  },
+  {
+    "id": 69,
+    "adjective": "embarrassed",
+    "meaning": "feeling self-conscious or ashamed",
+    "examples": [
+      "He felt embarrassed by the mistake.",
+      "She was embarrassed to speak up."
+    ]
+  },
+  {
+    "id": 70,
+    "adjective": "enchanting",
+    "meaning": "delightfully charming or attractive",
+    "examples": [
+      "The garden was enchanting in the moonlight.",
+      "It was an enchanting performance."
+    ]
+  },
+  {
+    "id": 71,
+    "adjective": "encouraging",
+    "meaning": "giving hope or confidence",
+    "examples": [
+      "Her words were encouraging.",
+      "He received encouraging feedback."
+    ]
+  },
+  {
+    "id": 72,
+    "adjective": "energetic",
+    "meaning": "full of energy and enthusiasm",
+    "examples": [
+      "Children are often very energetic.",
+      "He is energetic even after a long day."
+    ]
+  },
+  {
+    "id": 73,
+    "adjective": "enthusiastic",
+    "meaning": "showing intense and eager enjoyment",
+    "examples": [
+      "She is enthusiastic about learning.",
+      "The crowd was enthusiastic."
+    ]
+  },
+  {
+    "id": 74,
+    "adjective": "envious",
+    "meaning": "feeling jealousy of someone else's advantages",
+    "examples": [
+      "She was envious of her friend\u2019s success.",
+      "He felt envious of their lifestyle."
+    ]
+  },
+  {
+    "id": 75,
+    "adjective": "evil",
+    "meaning": "morally bad or wicked",
+    "examples": [
+      "The villain in the story was truly evil.",
+      "They believed the curse was evil."
+    ]
+  },
+  {
+    "id": 76,
+    "adjective": "excited",
+    "meaning": "very enthusiastic and eager",
+    "examples": [
+      "I'm excited for the weekend trip.",
+      "The kids were excited about the gifts."
+    ]
+  },
+  {
+    "id": 77,
+    "adjective": "expensive",
+    "meaning": "costing a lot of money",
+    "examples": [
+      "That watch is very expensive.",
+      "We had dinner at an expensive restaurant."
+    ]
+  },
+  {
+    "id": 78,
+    "adjective": "exuberant",
+    "meaning": "filled with lively energy or excitement",
+    "examples": [
+      "The fans were exuberant after the win.",
+      "Her exuberant personality is infectious."
+    ]
+  },
+  {
+    "id": 79,
+    "adjective": "fair",
+    "meaning": "just or appropriate under the circumstances",
+    "examples": [
+      "The judge made a fair decision.",
+      "It\u2019s only fair to share."
+    ]
+  },
+  {
+    "id": 80,
+    "adjective": "faithful",
+    "meaning": "loyal and reliable",
+    "examples": [
+      "He is a faithful friend.",
+      "They are faithful to their traditions."
+    ]
+  },
+  {
+    "id": 81,
+    "adjective": "famous",
+    "meaning": "well-known by many people",
+    "examples": [
+      "He is a famous actor.",
+      "The city is famous for its food."
+    ]
+  },
+  {
+    "id": 82,
+    "adjective": "fancy",
+    "meaning": "elaborate in structure or decoration",
+    "examples": [
+      "She wore a fancy dress.",
+      "They stayed at a fancy hotel."
+    ]
+  },
+  {
+    "id": 83,
+    "adjective": "fantastic",
+    "meaning": "extraordinarily good or attractive",
+    "examples": [
+      "The food was fantastic!",
+      "You did a fantastic job."
+    ]
+  },
+  {
+    "id": 84,
+    "adjective": "fierce",
+    "meaning": "showing strong emotion or aggressiveness",
+    "examples": [
+      "She gave a fierce speech.",
+      "A fierce storm hit the town."
+    ]
+  },
+  {
+    "id": 85,
+    "adjective": "filthy",
+    "meaning": "extremely dirty",
+    "examples": [
+      "The kitchen was filthy.",
+      "He came home with filthy hands."
+    ]
+  },
+  {
+    "id": 86,
+    "adjective": "fine",
+    "meaning": "of high quality; acceptable or satisfactory",
+    "examples": [
+      "This painting is of fine quality.",
+      "I\u2019m feeling fine today."
+    ]
+  },
+  {
+    "id": 87,
+    "adjective": "foolish",
+    "meaning": "lacking good sense or judgment",
+    "examples": [
+      "It was a foolish mistake.",
+      "Don\u2019t be foolish with your money."
+    ]
+  },
+  {
+    "id": 88,
+    "adjective": "fragile",
+    "meaning": "easily broken or damaged",
+    "examples": [
+      "Be careful, it's fragile!",
+      "Their relationship is still fragile."
+    ]
+  },
+  {
+    "id": 89,
+    "adjective": "frail",
+    "meaning": "weak or delicate",
+    "examples": [
+      "She looked frail after the illness.",
+      "He has a frail constitution."
+    ]
+  },
+  {
+    "id": 90,
+    "adjective": "frantic",
+    "meaning": "wild or distraught with fear or anxiety",
+    "examples": [
+      "She made a frantic call to 911.",
+      "They were frantic with worry."
+    ]
+  },
+  {
+    "id": 91,
+    "adjective": "friendly",
+    "meaning": "acting in a kind and helpful way",
+    "examples": [
+      "The staff were very friendly.",
+      "He gave me a friendly smile."
+    ]
+  },
+  {
+    "id": 92,
+    "adjective": "frightened",
+    "meaning": "afraid or anxious",
+    "examples": [
+      "She was frightened by the noise.",
+      "He looked frightened in the dark."
+    ]
+  },
+  {
+    "id": 93,
+    "adjective": "gentle",
+    "meaning": "mild in temperament or behavior",
+    "examples": [
+      "He gave the puppy a gentle pat.",
+      "Speak in a gentle voice to avoid scaring the baby."
+    ]
+  },
+  {
+    "id": 94,
+    "adjective": "gifted",
+    "meaning": "having exceptional talent or natural ability",
+    "examples": [
+      "She is a gifted pianist.",
+      "The school has a program for gifted children."
+    ]
+  },
+  {
+    "id": 95,
+    "adjective": "glamorous",
+    "meaning": "having an attractive or exciting quality",
+    "examples": [
+      "She looked glamorous in her evening gown.",
+      "They live a glamorous lifestyle."
+    ]
+  },
+  {
+    "id": 96,
+    "adjective": "gleaming",
+    "meaning": "shining brightly, especially with reflected light",
+    "examples": [
+      "The car was gleaming after the wash.",
+      "Her eyes were gleaming with excitement."
+    ]
+  },
+  {
+    "id": 97,
+    "adjective": "glorious",
+    "meaning": "having great beauty or splendor",
+    "examples": [
+      "It was a glorious day for a picnic.",
+      "The team won a glorious victory."
+    ]
+  },
+  {
+    "id": 98,
+    "adjective": "gorgeous",
+    "meaning": "very beautiful or attractive",
+    "examples": [
+      "You look absolutely gorgeous!",
+      "The sunset over the mountains was gorgeous."
+    ]
+  },
+  {
+    "id": 99,
+    "adjective": "graceful",
+    "meaning": "showing elegance or smooth movement",
+    "examples": [
+      "The dancer\u2019s performance was graceful.",
+      "She accepted the award in a graceful manner."
+    ]
+  },
+  {
+    "id": 100,
+    "adjective": "grieving",
+    "meaning": "suffering sorrow, especially after a loss",
+    "examples": [
+      "He is grieving the loss of his grandmother.",
+      "The grieving family received many visitors."
+    ]
+  }
+]

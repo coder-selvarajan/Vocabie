@@ -47,8 +47,8 @@ struct ViewCommonIdiom: View {
              
             Spacer()
         }
-        .padding()
-        .navigationTitle("View Idiom Info")
+        .padding(20)
+        .navigationTitle("Common Idiom")
     }
 }
 

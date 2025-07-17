@@ -1,0 +1,604 @@
+{
+  "phrasal_verbs": [
+    {
+      "id": "pv001",
+      "phrasal_verb": "act up",
+      "meaning": "to behave badly; to malfunction",
+      "usage_example": "My computer is acting up again."
+    },
+    {
+      "id": "pv002",
+      "phrasal_verb": "back up",
+      "meaning": "to support someone; to move backwards",
+      "usage_example": "Please back up your computer files regularly."
+    },
+    {
+      "id": "pv003",
+      "phrasal_verb": "blow up",
+      "meaning": "to explode; to become very angry",
+      "usage_example": "The balloon blew up when it hit the sharp edge."
+    },
+    {
+      "id": "pv004",
+      "phrasal_verb": "break down",
+      "meaning": "to stop working or functioning; to collapse emotionally",
+      "usage_example": "My car broke down on the highway yesterday."
+    },
+    {
+      "id": "pv005",
+      "phrasal_verb": "break in",
+      "meaning": "to enter illegally; to interrupt",
+      "usage_example": "Someone broke in while we were on vacation."
+    },
+    {
+      "id": "pv006",
+      "phrasal_verb": "break out",
+      "meaning": "to escape; to suddenly start (war, disease)",
+      "usage_example": "Three prisoners broke out of jail last night."
+    },
+    {
+      "id": "pv007",
+      "phrasal_verb": "break up",
+      "meaning": "to end a relationship; to separate into pieces",
+      "usage_example": "They broke up after dating for two years."
+    },
+    {
+      "id": "pv008",
+      "phrasal_verb": "bring back",
+      "meaning": "to return something; to restore",
+      "usage_example": "This song brings back memories of my childhood."
+    },
+    {
+      "id": "pv009",
+      "phrasal_verb": "bring up",
+      "meaning": "to mention or introduce a topic; to raise a child",
+      "usage_example": "She brought up an interesting point during the meeting."
+    },
+    {
+      "id": "pv010",
+      "phrasal_verb": "call off",
+      "meaning": "to cancel something",
+      "usage_example": "They had to call off the picnic due to rain."
+    },
+    {
+      "id": "pv011",
+      "phrasal_verb": "calm down",
+      "meaning": "to become less angry or excited",
+      "usage_example": "Please calm down and tell me what happened."
+    },
+    {
+      "id": "pv012",
+      "phrasal_verb": "carry on",
+      "meaning": "to continue doing something",
+      "usage_example": "Please carry on with your presentation."
+    },
+    {
+      "id": "pv013",
+      "phrasal_verb": "catch up",
+      "meaning": "to reach the same level as someone else",
+      "usage_example": "I need to catch up on my reading."
+    },
+    {
+      "id": "pv014",
+      "phrasal_verb": "check out",
+      "meaning": "to examine; to leave a hotel",
+      "usage_example": "We need to check out of the hotel by noon."
+    },
+    {
+      "id": "pv015",
+      "phrasal_verb": "clean up",
+      "meaning": "to make something tidy",
+      "usage_example": "Let's clean up the kitchen after dinner."
+    },
+    {
+      "id": "pv016",
+      "phrasal_verb": "come across",
+      "meaning": "to find or encounter something unexpectedly",
+      "usage_example": "I came across an old photo while cleaning my room."
+    },
+    {
+      "id": "pv017",
+      "phrasal_verb": "come back",
+      "meaning": "to return to a place",
+      "usage_example": "What time will you come back from work?"
+    },
+    {
+      "id": "pv018",
+      "phrasal_verb": "come down",
+      "meaning": "to decrease; to descend",
+      "usage_example": "House prices have come down recently."
+    },
+    {
+      "id": "pv019",
+      "phrasal_verb": "come up",
+      "meaning": "to arise or occur; to approach",
+      "usage_example": "Something urgent came up at work."
+    },
+    {
+      "id": "pv020",
+      "phrasal_verb": "count on",
+      "meaning": "to depend on someone or something",
+      "usage_example": "You can count on me to help you."
+    },
+    {
+      "id": "pv021",
+      "phrasal_verb": "cut down",
+      "meaning": "to reduce the amount of something",
+      "usage_example": "The doctor advised him to cut down on sugar."
+    },
+    {
+      "id": "pv022",
+      "phrasal_verb": "cut off",
+      "meaning": "to disconnect; to remove by cutting",
+      "usage_example": "The phone line was cut off during the storm."
+    },
+    {
+      "id": "pv023",
+      "phrasal_verb": "deal with",
+      "meaning": "to handle or manage a situation",
+      "usage_example": "How do you deal with stress at work?"
+    },
+    {
+      "id": "pv024",
+      "phrasal_verb": "dress up",
+      "meaning": "to wear formal or special clothes",
+      "usage_example": "We need to dress up for the wedding."
+    },
+    {
+      "id": "pv025",
+      "phrasal_verb": "drop by",
+      "meaning": "to visit briefly without arrangement",
+      "usage_example": "Feel free to drop by anytime."
+    },
+    {
+      "id": "pv026",
+      "phrasal_verb": "drop off",
+      "meaning": "to deliver someone or something to a place",
+      "usage_example": "Can you drop me off at the train station?"
+    },
+    {
+      "id": "pv027",
+      "phrasal_verb": "end up",
+      "meaning": "to finally be in a particular situation",
+      "usage_example": "We ended up staying home instead of going out."
+    },
+    {
+      "id": "pv028",
+      "phrasal_verb": "fall apart",
+      "meaning": "to break into pieces; to fail completely",
+      "usage_example": "The old book fell apart when I touched it."
+    },
+    {
+      "id": "pv029",
+      "phrasal_verb": "figure out",
+      "meaning": "to understand or solve something",
+      "usage_example": "I can't figure out how to use this new software."
+    },
+    {
+      "id": "pv030",
+      "phrasal_verb": "fill in",
+      "meaning": "to complete a form; to substitute for someone",
+      "usage_example": "Please fill in this application form."
+    },
+    {
+      "id": "pv031",
+      "phrasal_verb": "find out",
+      "meaning": "to discover information",
+      "usage_example": "I need to find out what time the store closes."
+    },
+    {
+      "id": "pv032",
+      "phrasal_verb": "get along",
+      "meaning": "to have a good relationship with someone",
+      "usage_example": "Sarah and her roommate get along very well."
+    },
+    {
+      "id": "pv033",
+      "phrasal_verb": "get away",
+      "meaning": "to escape; to go on vacation",
+      "usage_example": "The thief managed to get away."
+    },
+    {
+      "id": "pv034",
+      "phrasal_verb": "get by",
+      "meaning": "to manage or survive with difficulty",
+      "usage_example": "We can get by on one income for now."
+    },
+    {
+      "id": "pv035",
+      "phrasal_verb": "get over",
+      "meaning": "to recover from an illness or disappointment",
+      "usage_example": "It took him months to get over the breakup."
+    },
+    {
+      "id": "pv036",
+      "phrasal_verb": "get up",
+      "meaning": "to rise from bed; to stand up",
+      "usage_example": "I get up at 7 AM every weekday."
+    },
+    {
+      "id": "pv037",
+      "phrasal_verb": "give away",
+      "meaning": "to donate; to reveal a secret",
+      "usage_example": "She gave away all her old clothes."
+    },
+    {
+      "id": "pv038",
+      "phrasal_verb": "give in",
+      "meaning": "to surrender or yield",
+      "usage_example": "After hours of arguing, he finally gave in."
+    },
+    {
+      "id": "pv039",
+      "phrasal_verb": "give up",
+      "meaning": "to stop trying or quit",
+      "usage_example": "Don't give up on your dreams so easily."
+    },
+    {
+      "id": "pv040",
+      "phrasal_verb": "go ahead",
+      "meaning": "to proceed; to give permission",
+      "usage_example": "Go ahead and start the meeting without me."
+    },
+    {
+      "id": "pv041",
+      "phrasal_verb": "go over",
+      "meaning": "to review or examine carefully",
+      "usage_example": "Let's go over the report one more time."
+    },
+    {
+      "id": "pv042",
+      "phrasal_verb": "grow up",
+      "meaning": "to mature; to become an adult",
+      "usage_example": "I grew up in a small town in Ohio."
+    },
+    {
+      "id": "pv043",
+      "phrasal_verb": "hand in",
+      "meaning": "to submit something",
+      "usage_example": "Students must hand in their essays by Friday."
+    },
+    {
+      "id": "pv044",
+      "phrasal_verb": "hang out",
+      "meaning": "to spend time relaxing with friends",
+      "usage_example": "Let's hang out at the park this afternoon."
+    },
+    {
+      "id": "pv045",
+      "phrasal_verb": "help out",
+      "meaning": "to assist someone",
+      "usage_example": "Can you help out with the dishes?"
+    },
+    {
+      "id": "pv046",
+      "phrasal_verb": "hold on",
+      "meaning": "to wait; to grip something tightly",
+      "usage_example": "Hold on a moment, I'll be right back."
+    },
+    {
+      "id": "pv047",
+      "phrasal_verb": "hold up",
+      "meaning": "to delay; to rob at gunpoint",
+      "usage_example": "Traffic is holding up our journey."
+    },
+    {
+      "id": "pv048",
+      "phrasal_verb": "join in",
+      "meaning": "to participate in an activity",
+      "usage_example": "Everyone joined in the singing."
+    },
+    {
+      "id": "pv049",
+      "phrasal_verb": "keep on",
+      "meaning": "to continue doing something",
+      "usage_example": "Keep on practicing and you'll improve."
+    },
+    {
+      "id": "pv050",
+      "phrasal_verb": "keep up",
+      "meaning": "to maintain the same pace or level",
+      "usage_example": "It's hard to keep up with all the changes."
+    },
+    {
+      "id": "pv051",
+      "phrasal_verb": "knock out",
+      "meaning": "to make unconscious; to eliminate from competition",
+      "usage_example": "The boxer was knocked out in the third round."
+    },
+    {
+      "id": "pv052",
+      "phrasal_verb": "lay off",
+      "meaning": "to dismiss employees; to stop bothering someone",
+      "usage_example": "The company had to lay off 50 workers."
+    },
+    {
+      "id": "pv053",
+      "phrasal_verb": "leave out",
+      "meaning": "to omit or exclude something",
+      "usage_example": "You left out an important detail."
+    },
+    {
+      "id": "pv054",
+      "phrasal_verb": "let down",
+      "meaning": "to disappoint someone",
+      "usage_example": "I don't want to let my team down."
+    },
+    {
+      "id": "pv055",
+      "phrasal_verb": "log in",
+      "meaning": "to access a computer system",
+      "usage_example": "Please log in with your username and password."
+    },
+    {
+      "id": "pv056",
+      "phrasal_verb": "look after",
+      "meaning": "to take care of someone or something",
+      "usage_example": "She looks after her elderly grandmother."
+    },
+    {
+      "id": "pv057",
+      "phrasal_verb": "look forward to",
+      "meaning": "to anticipate something with pleasure",
+      "usage_example": "I'm looking forward to the weekend."
+    },
+    {
+      "id": "pv058",
+      "phrasal_verb": "look out",
+      "meaning": "to be careful; to watch for something",
+      "usage_example": "Look out for pickpockets in crowded areas."
+    },
+    {
+      "id": "pv059",
+      "phrasal_verb": "look up",
+      "meaning": "to search for information; to improve",
+      "usage_example": "Look up the word in the dictionary."
+    },
+    {
+      "id": "pv060",
+      "phrasal_verb": "make out",
+      "meaning": "to see or understand with difficulty; to kiss passionately",
+      "usage_example": "I can't make out what this handwriting says."
+    },
+    {
+      "id": "pv061",
+      "phrasal_verb": "make up",
+      "meaning": "to invent a story; to reconcile after an argument",
+      "usage_example": "They made up after their silly fight."
+    },
+    {
+      "id": "pv062",
+      "phrasal_verb": "mix up",
+      "meaning": "to confuse one thing with another",
+      "usage_example": "I always mix up their names."
+    },
+    {
+      "id": "pv063",
+      "phrasal_verb": "move on",
+      "meaning": "to continue to the next thing; to get over something",
+      "usage_example": "After the divorce, she decided to move on."
+    },
+    {
+      "id": "pv064",
+      "phrasal_verb": "open up",
+      "meaning": "to start a business; to become more communicative",
+      "usage_example": "She finally opened up about her feelings."
+    },
+    {
+      "id": "pv065",
+      "phrasal_verb": "pass by",
+      "meaning": "to go past something",
+      "usage_example": "I pass by the library on my way to work."
+    },
+    {
+      "id": "pv066",
+      "phrasal_verb": "pass out",
+      "meaning": "to faint; to distribute",
+      "usage_example": "He passed out from the heat."
+    },
+    {
+      "id": "pv067",
+      "phrasal_verb": "pick up",
+      "meaning": "to lift something; to collect someone or something",
+      "usage_example": "I'll pick you up at 7 PM for dinner."
+    },
+    {
+      "id": "pv068",
+      "phrasal_verb": "point out",
+      "meaning": "to indicate or draw attention to something",
+      "usage_example": "She pointed out the error in my calculation."
+    },
+    {
+      "id": "pv069",
+      "phrasal_verb": "pull over",
+      "meaning": "to stop a vehicle at the side of the road",
+      "usage_example": "The police officer asked me to pull over."
+    },
+    {
+      "id": "pv070",
+      "phrasal_verb": "put down",
+      "meaning": "to place something on a surface; to criticize",
+      "usage_example": "Put down that heavy box and rest."
+    },
+    {
+      "id": "pv071",
+      "phrasal_verb": "put off",
+      "meaning": "to postpone or delay something",
+      "usage_example": "We had to put off the meeting until next week."
+    },
+    {
+      "id": "pv072",
+      "phrasal_verb": "put on",
+      "meaning": "to wear clothing; to pretend",
+      "usage_example": "Put on your coat before going outside."
+    },
+    {
+      "id": "pv073",
+      "phrasal_verb": "put up",
+      "meaning": "to accommodate someone; to tolerate",
+      "usage_example": "Can you put me up for the night?"
+    },
+    {
+      "id": "pv074",
+      "phrasal_verb": "run into",
+      "meaning": "to meet someone unexpectedly",
+      "usage_example": "I ran into my old teacher at the grocery store."
+    },
+    {
+      "id": "pv075",
+      "phrasal_verb": "run out",
+      "meaning": "to have no more of something left",
+      "usage_example": "We've run out of milk."
+    },
+    {
+      "id": "pv076",
+      "phrasal_verb": "send back",
+      "meaning": "to return something to where it came from",
+      "usage_example": "I had to send back the defective product."
+    },
+    {
+      "id": "pv077",
+      "phrasal_verb": "set up",
+      "meaning": "to establish or arrange something",
+      "usage_example": "They set up a new business in downtown."
+    },
+    {
+      "id": "pv078",
+      "phrasal_verb": "settle down",
+      "meaning": "to become calm; to start living a stable life",
+      "usage_example": "After years of traveling, he decided to settle down."
+    },
+    {
+      "id": "pv079",
+      "phrasal_verb": "show up",
+      "meaning": "to appear or arrive",
+      "usage_example": "He didn't show up for the meeting."
+    },
+    {
+      "id": "pv080",
+      "phrasal_verb": "shut down",
+      "meaning": "to close permanently; to stop operating",
+      "usage_example": "The factory shut down due to financial problems."
+    },
+    {
+      "id": "pv081",
+      "phrasal_verb": "slow down",
+      "meaning": "to reduce speed or pace",
+      "usage_example": "You're driving too fast, please slow down."
+    },
+    {
+      "id": "pv082",
+      "phrasal_verb": "speak up",
+      "meaning": "to talk more loudly; to express an opinion",
+      "usage_example": "Please speak up, I can't hear you."
+    },
+    {
+      "id": "pv083",
+      "phrasal_verb": "stand up",
+      "meaning": "to rise to one's feet; to fail to meet someone",
+      "usage_example": "Please stand up when the judge enters."
+    },
+    {
+      "id": "pv084",
+      "phrasal_verb": "take back",
+      "meaning": "to return something; to withdraw a statement",
+      "usage_example": "I take back what I said about your cooking."
+    },
+    {
+      "id": "pv085",
+      "phrasal_verb": "take care of",
+      "meaning": "to look after someone or something",
+      "usage_example": "Can you take care of my plants while I'm away?"
+    },
+    {
+      "id": "pv086",
+      "phrasal_verb": "take off",
+      "meaning": "to remove clothing; to leave suddenly; (of planes) to leave the ground",
+      "usage_example": "The plane will take off in ten minutes."
+    },
+    {
+      "id": "pv087",
+      "phrasal_verb": "think over",
+      "meaning": "to consider something carefully",
+      "usage_example": "Let me think over your proposal."
+    },
+    {
+      "id": "pv088",
+      "phrasal_verb": "throw away",
+      "meaning": "to discard something; to waste an opportunity",
+      "usage_example": "Don't throw away those old magazines yet."
+    },
+    {
+      "id": "pv089",
+      "phrasal_verb": "try on",
+      "meaning": "to put on clothing to see if it fits",
+      "usage_example": "I need to try on these shoes before buying them."
+    },
+    {
+      "id": "pv090",
+      "phrasal_verb": "turn down",
+      "meaning": "to refuse or reject; to reduce volume",
+      "usage_example": "She turned down the job offer."
+    },
+    {
+      "id": "pv091",
+      "phrasal_verb": "turn off",
+      "meaning": "to stop a machine or device",
+      "usage_example": "Don't forget to turn off the computer."
+    },
+    {
+      "id": "pv092",
+      "phrasal_verb": "turn on",
+      "meaning": "to start a machine or device",
+      "usage_example": "Please turn on the lights."
+    },
+    {
+      "id": "pv093",
+      "phrasal_verb": "turn up",
+      "meaning": "to arrive; to increase volume",
+      "usage_example": "She turned up unexpectedly at the party."
+    },
+    {
+      "id": "pv094",
+      "phrasal_verb": "use up",
+      "meaning": "to consume completely",
+      "usage_example": "We used up all our savings on the vacation."
+    },
+    {
+      "id": "pv095",
+      "phrasal_verb": "wake up",
+      "meaning": "to stop sleeping; to become alert",
+      "usage_example": "I wake up at 6 AM every morning."
+    },
+    {
+      "id": "pv096",
+      "phrasal_verb": "warm up",
+      "meaning": "to heat something; to prepare for exercise",
+      "usage_example": "Let's warm up before we start jogging."
+    },
+    {
+      "id": "pv097",
+      "phrasal_verb": "watch out",
+      "meaning": "to be careful or alert",
+      "usage_example": "Watch out for that hole in the road."
+    },
+    {
+      "id": "pv098",
+      "phrasal_verb": "work out",
+      "meaning": "to exercise; to solve a problem",
+      "usage_example": "I work out at the gym three times a week."
+    },
+    {
+      "id": "pv099",
+      "phrasal_verb": "write down",
+      "meaning": "to record something in writing",
+      "usage_example": "Write down your phone number for me."
+    },
+    {
+      "id": "pv100",
+      "phrasal_verb": "zip up",
+      "meaning": "to close with a zipper",
+      "usage_example": "Zip up your jacket, it's cold outside."
+    }
+  ]
+}

@@ -23,9 +23,9 @@ struct AIEnglishChatbotView: View {
     private let usefulPrompts = [
         "Give me 10 popular words with meaning and example usage for an intermediate learner.",
         "What are 5 advanced English words I can use in a business email, with examples?",
-        "Suggest 10 verbs I can use instead of “get” in different situations.",
         "Give me 10 commonly confused word pairs and explain the difference.",
         "List 5 adjectives to describe people positively, with sentence examples.",
+        "Suggest 10 verbs I can use instead of “get” in different situations.",
 
         "Explain when to use “much” vs “many” with examples.",
         "What are 5 common grammar mistakes learners make, and how to avoid them?",
@@ -483,7 +483,7 @@ struct MarkdownElement {
         case .numberedPoint:
             return AnyView(
                 HStack(alignment: .top, spacing: 8) {
-                    Text("1.")
+                    Text("•")
                         .font(.body)
                         .foregroundColor(.primary)
                     Text(parseInlineMarkdown(content))

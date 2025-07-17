@@ -50,12 +50,10 @@
 		709D3B7C287C4736008F8802 /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D3B7B287C4736008F8802 /* Importer.swift */; };
 		709D3B7E287C52E4008F8802 /* CommonPhrase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D3B7D287C52E4008F8802 /* CommonPhrase+Extensions.swift */; };
 		709D3B80287C5644008F8802 /* CommonPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D3B7F287C5644008F8802 /* CommonPhraseViewModel.swift */; };
-		709D3B83287C5F04008F8802 /* CommonIdiomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D3B82287C5F04008F8802 /* CommonIdiomsView.swift */; };
 		709F859F2838166E002CC860 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709F859E2838166E002CC860 /* CloudKit.framework */; };
 		70A6B85E27FD60CF00618D66 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A6B85D27FD60CF00618D66 /* FlipView.swift */; };
 		70A6B86027FD654E00618D66 /* SpellWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A6B85F27FD654E00618D66 /* SpellWord.swift */; };
 		70A745FF2808A7F5005892E1 /* RandomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A745FE2808A7F5005892E1 /* RandomPickerView.swift */; };
-		70AC0BFC287C90D100240D9C /* ViewCommonIdiom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC0BFB287C90D100240D9C /* ViewCommonIdiom.swift */; };
 		70B4E8D32841130C0004A05B /* OwlBotApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B4E8D22841130C0004A05B /* OwlBotApi.swift */; };
 		70B61CFB283C9FD60097E5A6 /* WordsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B61CFA283C9FD60097E5A6 /* WordsApi.swift */; };
 		70BA45DB281B13FC00F112D0 /* ViewUserWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BA45DA281B13FC00F112D0 /* ViewUserWord.swift */; };
@@ -134,13 +132,11 @@
 		709D3B7B287C4736008F8802 /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
 		709D3B7D287C52E4008F8802 /* CommonPhrase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommonPhrase+Extensions.swift"; sourceTree = "<group>"; };
 		709D3B7F287C5644008F8802 /* CommonPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPhraseViewModel.swift; sourceTree = "<group>"; };
-		709D3B82287C5F04008F8802 /* CommonIdiomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonIdiomsView.swift; sourceTree = "<group>"; };
 		709F859C28381668002CC860 /* Vocabie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vocabie.entitlements; sourceTree = "<group>"; };
 		709F859E2838166E002CC860 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		70A6B85D27FD60CF00618D66 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		70A6B85F27FD654E00618D66 /* SpellWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellWord.swift; sourceTree = "<group>"; };
 		70A745FE2808A7F5005892E1 /* RandomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPickerView.swift; sourceTree = "<group>"; };
-		70AC0BFB287C90D100240D9C /* ViewCommonIdiom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCommonIdiom.swift; sourceTree = "<group>"; };
 		70B4E8D22841130C0004A05B /* OwlBotApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwlBotApi.swift; sourceTree = "<group>"; };
 		70B61CFA283C9FD60097E5A6 /* WordsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsApi.swift; sourceTree = "<group>"; };
 		70BA45DA281B13FC00F112D0 /* ViewUserWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUserWord.swift; sourceTree = "<group>"; };
@@ -159,6 +155,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		FF94DAF12E2891CF00A00451 /* IntermediateVerbs */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IntermediateVerbs; sourceTree = "<group>"; };
+		FF94DAFE2E28954B00A00451 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
+		FF94DB052E28BC8E00A00451 /* CommonAdjectives */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CommonAdjectives; sourceTree = "<group>"; };
+		FF94DB112E28C2BF00A00451 /* PhrasalVerbs */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = PhrasalVerbs; sourceTree = "<group>"; };
+		FF94DB172E28CC2C00A00451 /* CommonIdioms */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CommonIdioms; sourceTree = "<group>"; };
+		FF94DB182E28D51000A00451 /* About */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = About; sourceTree = "<group>"; };
 		FFD2647D2E27C32200262204 /* AIChatBot */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AIChatBot; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -304,6 +306,7 @@
 		707D1E6D27DDD02E0020557E /* Vocabie */ = {
 			isa = PBXGroup;
 			children = (
+				FF94DAFE2E28954B00A00451 /* Resources */,
 				70330663287B4A840083C34D /* DataImport */,
 				70B61D02283D15930097E5A6 /* OfflineDict */,
 				709F859C28381668002CC860 /* Vocabie.entitlements */,
@@ -377,8 +380,9 @@
 		708EC4B427F3005600B91A42 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FF94DB182E28D51000A00451 /* About */,
 				FFD2647D2E27C32200262204 /* AIChatBot */,
-				709D3B81287C5EE0008F8802 /* Resources */,
+				709D3B81287C5EE0008F8802 /* ResourceViews */,
 				7021B53E284011DE00DB8EBB /* Dictionary */,
 				703311B6282A50A700F2E17E /* Phrases */,
 				703311B5282A509C00F2E17E /* Sentences */,
@@ -391,13 +395,15 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		709D3B81287C5EE0008F8802 /* Resources */ = {
+		709D3B81287C5EE0008F8802 /* ResourceViews */ = {
 			isa = PBXGroup;
 			children = (
-				709D3B82287C5F04008F8802 /* CommonIdiomsView.swift */,
-				70AC0BFB287C90D100240D9C /* ViewCommonIdiom.swift */,
+				FF94DB172E28CC2C00A00451 /* CommonIdioms */,
+				FF94DB052E28BC8E00A00451 /* CommonAdjectives */,
+				FF94DB112E28C2BF00A00451 /* PhrasalVerbs */,
+				FF94DAF12E2891CF00A00451 /* IntermediateVerbs */,
 			);
-			path = Resources;
+			path = ResourceViews;
 			sourceTree = "<group>";
 		};
 		709F859D2838166E002CC860 /* Frameworks */ = {
@@ -454,6 +460,12 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				FF94DAF12E2891CF00A00451 /* IntermediateVerbs */,
+				FF94DAFE2E28954B00A00451 /* Resources */,
+				FF94DB052E28BC8E00A00451 /* CommonAdjectives */,
+				FF94DB112E28C2BF00A00451 /* PhrasalVerbs */,
+				FF94DB172E28CC2C00A00451 /* CommonIdioms */,
+				FF94DB182E28D51000A00451 /* About */,
 				FFD2647D2E27C32200262204 /* AIChatBot */,
 			);
 			name = Vocabie;
@@ -587,13 +599,11 @@
 				707D1E9027DE797D0020557E /* AddUserWordView.swift in Sources */,
 				707D1E8427DDE86E0020557E /* BaseModel.swift in Sources */,
 				703052D628112405004FD5D2 /* Dictionary.swift in Sources */,
-				709D3B83287C5F04008F8802 /* CommonIdiomsView.swift in Sources */,
 				7021B53D2840116D00DB8EBB /* DictionaryViewModel.swift in Sources */,
 				70564F8627F5ABC800EBA186 /* UserSentenceListViewModel.swift in Sources */,
 				70DFA4C027F8B28D007FADB1 /* UserPhrase+Extensions.swift in Sources */,
 				70564F8827F5AC3800EBA186 /* UserSentence+Extensions.swift in Sources */,
 				70A6B86027FD654E00618D66 /* SpellWord.swift in Sources */,
-				70AC0BFC287C90D100240D9C /* ViewCommonIdiom.swift in Sources */,
 				707553A5282ADED200BC74A8 /* SearchHistoryViewModel.swift in Sources */,
 				702584E2282CB5B700B6FF20 /* ViewPhrase.swift in Sources */,
 				70330667287B4B2A0083C34D /* CSVImport.swift in Sources */,

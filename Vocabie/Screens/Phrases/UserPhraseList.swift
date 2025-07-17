@@ -34,7 +34,6 @@ struct UserPhraseList: View {
             }
             .onDelete(perform: delete)
         }
-        .listStyle(.grouped)
         .navigationTitle(Text("Phrase / Idiom List"))
         .searchable(text: $searchText)
         .onAppear {

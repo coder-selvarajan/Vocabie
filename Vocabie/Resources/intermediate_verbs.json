@@ -1,0 +1,584 @@
+[
+  {
+    "id": 1,
+    "verb": "accept",
+    "meaning": "to agree to receive or do",
+    "example": "He accepted the invitation gladly."
+  },
+  {
+    "id": 2,
+    "verb": "achieve",
+    "meaning": "to successfully complete or accomplish",
+    "example": "She achieved her goals through hard work."
+  },
+  {
+    "id": 3,
+    "verb": "adapt",
+    "meaning": "to adjust to new conditions",
+    "example": "You must adapt to the new environment."
+  },
+  {
+    "id": 4,
+    "verb": "analyze",
+    "meaning": "to study something in detail",
+    "example": "The data was analyzed for trends."
+  },
+  {
+    "id": 5,
+    "verb": "apply",
+    "meaning": "to make a formal request or use something",
+    "example": "You should apply for the job."
+  },
+  {
+    "id": 6,
+    "verb": "approve",
+    "meaning": "to agree or accept officially",
+    "example": "The manager approved the budget."
+  },
+  {
+    "id": 7,
+    "verb": "argue",
+    "meaning": "to discuss with opposing views",
+    "example": "They argued about politics for hours."
+  },
+  {
+    "id": 8,
+    "verb": "arrange",
+    "meaning": "to organize or plan",
+    "example": "She arranged the meeting for 10 AM."
+  },
+  {
+    "id": 9,
+    "verb": "attend",
+    "meaning": "to be present at an event",
+    "example": "I will attend the seminar tomorrow."
+  },
+  {
+    "id": 10,
+    "verb": "balance",
+    "meaning": "to keep something steady or equal",
+    "example": "He balances work and life well."
+  },
+  {
+    "id": 11,
+    "verb": "belong",
+    "meaning": "to be part of or owned by",
+    "example": "This book belongs to Sarah."
+  },
+  {
+    "id": 12,
+    "verb": "compare",
+    "meaning": "to examine similarities or differences",
+    "example": "They compared the two products."
+  },
+  {
+    "id": 13,
+    "verb": "complain",
+    "meaning": "to express dissatisfaction",
+    "example": "He complained about the slow service."
+  },
+  {
+    "id": 14,
+    "verb": "complete",
+    "meaning": "to finish or make whole",
+    "example": "She completed the project on time."
+  },
+  {
+    "id": 15,
+    "verb": "conclude",
+    "meaning": "to bring something to an end",
+    "example": "The meeting concluded at noon."
+  },
+  {
+    "id": 16,
+    "verb": "confirm",
+    "meaning": "to make sure something is true",
+    "example": "They confirmed the booking."
+  },
+  {
+    "id": 17,
+    "verb": "connect",
+    "meaning": "to join or link things together",
+    "example": "The router connects all devices."
+  },
+  {
+    "id": 18,
+    "verb": "consider",
+    "meaning": "to think about carefully",
+    "example": "Please consider my suggestion."
+  },
+  {
+    "id": 19,
+    "verb": "contribute",
+    "meaning": "to give or add to something",
+    "example": "She contributed to the discussion."
+  },
+  {
+    "id": 20,
+    "verb": "control",
+    "meaning": "to have power over something",
+    "example": "He controls the budget."
+  },
+  {
+    "id": 21,
+    "verb": "cooperate",
+    "meaning": "to work together",
+    "example": "They cooperated on the assignment."
+  },
+  {
+    "id": 22,
+    "verb": "correct",
+    "meaning": "to fix a mistake",
+    "example": "He corrected the spelling errors."
+  },
+  {
+    "id": 23,
+    "verb": "criticize",
+    "meaning": "to point out faults",
+    "example": "She criticized the plan openly."
+  },
+  {
+    "id": 24,
+    "verb": "decide",
+    "meaning": "to make a choice",
+    "example": "He decided to move abroad."
+  },
+  {
+    "id": 25,
+    "verb": "define",
+    "meaning": "to explain the meaning of something",
+    "example": "Can you define this term?"
+  },
+  {
+    "id": 26,
+    "verb": "depend",
+    "meaning": "to rely on something or someone",
+    "example": "You can depend on him."
+  },
+  {
+    "id": 27,
+    "verb": "design",
+    "meaning": "to create plans for something",
+    "example": "She designed the new logo."
+  },
+  {
+    "id": 28,
+    "verb": "develop",
+    "meaning": "to grow or improve",
+    "example": "They developed a new app."
+  },
+  {
+    "id": 29,
+    "verb": "differ",
+    "meaning": "to be not the same",
+    "example": "Their opinions differ greatly."
+  },
+  {
+    "id": 30,
+    "verb": "enable",
+    "meaning": "to make possible",
+    "example": "This tool enables quick edits."
+  },
+  {
+    "id": 31,
+    "verb": "enjoy",
+    "meaning": "to take pleasure in",
+    "example": "He enjoys painting."
+  },
+  {
+    "id": 32,
+    "verb": "establish",
+    "meaning": "to set up or create",
+    "example": "The company was established in 2000."
+  },
+  {
+    "id": 33,
+    "verb": "estimate",
+    "meaning": "to guess based on information",
+    "example": "They estimated the cost."
+  },
+  {
+    "id": 34,
+    "verb": "evaluate",
+    "meaning": "to judge or assess",
+    "example": "The teacher evaluated the test."
+  },
+  {
+    "id": 35,
+    "verb": "explain",
+    "meaning": "to make something clear",
+    "example": "Can you explain the rules?"
+  },
+  {
+    "id": 36,
+    "verb": "explore",
+    "meaning": "to look around or examine",
+    "example": "They explored the old town."
+  },
+  {
+    "id": 37,
+    "verb": "face",
+    "meaning": "to confront or deal with",
+    "example": "He faced many challenges."
+  },
+  {
+    "id": 38,
+    "verb": "focus",
+    "meaning": "to give attention to something",
+    "example": "Please focus on your work."
+  },
+  {
+    "id": 39,
+    "verb": "function",
+    "meaning": "to work or operate properly",
+    "example": "The machine functions well."
+  },
+  {
+    "id": 40,
+    "verb": "gather",
+    "meaning": "to collect or bring together",
+    "example": "They gathered information."
+  },
+  {
+    "id": 41,
+    "verb": "handle",
+    "meaning": "to deal with or manage",
+    "example": "She handles customer complaints."
+  },
+  {
+    "id": 42,
+    "verb": "hesitate",
+    "meaning": "to pause before doing something",
+    "example": "He hesitated to speak."
+  },
+  {
+    "id": 43,
+    "verb": "illustrate",
+    "meaning": "to explain with examples or pictures",
+    "example": "The graph illustrates the result."
+  },
+  {
+    "id": 44,
+    "verb": "imagine",
+    "meaning": "to form a mental picture",
+    "example": "Imagine a better future."
+  },
+  {
+    "id": 45,
+    "verb": "include",
+    "meaning": "to have as part of something",
+    "example": "The price includes tax."
+  },
+  {
+    "id": 46,
+    "verb": "intend",
+    "meaning": "to plan or mean to do something",
+    "example": "I intend to finish this today."
+  },
+  {
+    "id": 47,
+    "verb": "introduce",
+    "meaning": "to present someone or something",
+    "example": "She introduced her colleague."
+  },
+  {
+    "id": 48,
+    "verb": "invest",
+    "meaning": "to put money or effort into something",
+    "example": "He invested in stocks."
+  },
+  {
+    "id": 49,
+    "verb": "involve",
+    "meaning": "to include or affect",
+    "example": "This job involves travel."
+  },
+  {
+    "id": 50,
+    "verb": "judge",
+    "meaning": "to form an opinion",
+    "example": "Don't judge by appearances."
+  },
+  {
+    "id": 51,
+    "verb": "justify",
+    "meaning": "to show something is right or reasonable",
+    "example": "He justified his decision."
+  },
+  {
+    "id": 52,
+    "verb": "learn",
+    "meaning": "to gain knowledge or skill",
+    "example": "She is learning Spanish."
+  },
+  {
+    "id": 53,
+    "verb": "limit",
+    "meaning": "to restrict or reduce",
+    "example": "They limited the number of attendees."
+  },
+  {
+    "id": 54,
+    "verb": "mention",
+    "meaning": "to briefly speak about",
+    "example": "He mentioned your name."
+  },
+  {
+    "id": 55,
+    "verb": "notice",
+    "meaning": "to become aware of",
+    "example": "Did you notice the change?"
+  },
+  {
+    "id": 56,
+    "verb": "offer",
+    "meaning": "to present or give",
+    "example": "They offered help."
+  },
+  {
+    "id": 57,
+    "verb": "organize",
+    "meaning": "to arrange or structure",
+    "example": "He organized the files."
+  },
+  {
+    "id": 58,
+    "verb": "participate",
+    "meaning": "to take part in",
+    "example": "She participated in the event."
+  },
+  {
+    "id": 59,
+    "verb": "perform",
+    "meaning": "to do or carry out",
+    "example": "The team performed well."
+  },
+  {
+    "id": 60,
+    "verb": "prefer",
+    "meaning": "to like one thing more than another",
+    "example": "I prefer coffee over tea."
+  },
+  {
+    "id": 61,
+    "verb": "prepare",
+    "meaning": "to get ready",
+    "example": "She prepared for the trip."
+  },
+  {
+    "id": 62,
+    "verb": "prevent",
+    "meaning": "to stop something from happening",
+    "example": "They prevented the accident."
+  },
+  {
+    "id": 63,
+    "verb": "protect",
+    "meaning": "to keep safe",
+    "example": "Use sunscreen to protect your skin."
+  },
+  {
+    "id": 64,
+    "verb": "prove",
+    "meaning": "to show something is true",
+    "example": "He proved his theory."
+  },
+  {
+    "id": 65,
+    "verb": "react",
+    "meaning": "to respond to something",
+    "example": "She reacted calmly."
+  },
+  {
+    "id": 66,
+    "verb": "realize",
+    "meaning": "to understand or become aware",
+    "example": "I just realized my mistake."
+  },
+  {
+    "id": 67,
+    "verb": "recognize",
+    "meaning": "to identify something seen before",
+    "example": "I recognized her from school."
+  },
+  {
+    "id": 68,
+    "verb": "recommend",
+    "meaning": "to suggest as good",
+    "example": "I recommend this restaurant."
+  },
+  {
+    "id": 69,
+    "verb": "reduce",
+    "meaning": "to make less",
+    "example": "The company reduced its waste."
+  },
+  {
+    "id": 70,
+    "verb": "refer",
+    "meaning": "to mention or relate to",
+    "example": "He referred to the guidebook."
+  },
+  {
+    "id": 71,
+    "verb": "refuse",
+    "meaning": "to say no",
+    "example": "She refused the offer."
+  },
+  {
+    "id": 72,
+    "verb": "relax",
+    "meaning": "to become less tense",
+    "example": "Just relax and breathe."
+  },
+  {
+    "id": 73,
+    "verb": "rely",
+    "meaning": "to depend on",
+    "example": "I rely on my notes."
+  },
+  {
+    "id": 74,
+    "verb": "remind",
+    "meaning": "to help someone remember",
+    "example": "Remind me about the meeting."
+  },
+  {
+    "id": 75,
+    "verb": "replace",
+    "meaning": "to take the place of",
+    "example": "We replaced the broken lamp."
+  },
+  {
+    "id": 76,
+    "verb": "require",
+    "meaning": "to need",
+    "example": "The job requires experience."
+  },
+  {
+    "id": 77,
+    "verb": "respond",
+    "meaning": "to reply or react",
+    "example": "He responded quickly."
+  },
+  {
+    "id": 78,
+    "verb": "result",
+    "meaning": "to happen as a consequence",
+    "example": "The error resulted in delay."
+  },
+  {
+    "id": 79,
+    "verb": "reveal",
+    "meaning": "to make known",
+    "example": "She revealed the truth."
+  },
+  {
+    "id": 80,
+    "verb": "separate",
+    "meaning": "to divide or keep apart",
+    "example": "Separate the files by type."
+  },
+  {
+    "id": 81,
+    "verb": "share",
+    "meaning": "to give a portion to others",
+    "example": "They shared the food."
+  },
+  {
+    "id": 82,
+    "verb": "solve",
+    "meaning": "to find an answer",
+    "example": "He solved the puzzle."
+  },
+  {
+    "id": 83,
+    "verb": "state",
+    "meaning": "to say clearly",
+    "example": "He stated his opinion."
+  },
+  {
+    "id": 84,
+    "verb": "stress",
+    "meaning": "to emphasize",
+    "example": "She stressed the importance."
+  },
+  {
+    "id": 85,
+    "verb": "struggle",
+    "meaning": "to try hard despite difficulty",
+    "example": "He struggled with math."
+  },
+  {
+    "id": 86,
+    "verb": "support",
+    "meaning": "to help or back up",
+    "example": "They supported her idea."
+  },
+  {
+    "id": 87,
+    "verb": "suppose",
+    "meaning": "to assume or believe",
+    "example": "I suppose you're right."
+  },
+  {
+    "id": 88,
+    "verb": "survive",
+    "meaning": "to continue to live or exist",
+    "example": "They survived the storm."
+  },
+  {
+    "id": 89,
+    "verb": "suspect",
+    "meaning": "to think something might be true",
+    "example": "I suspect he is lying."
+  },
+  {
+    "id": 90,
+    "verb": "tend",
+    "meaning": "to usually do something",
+    "example": "She tends to be late."
+  },
+  {
+    "id": 91,
+    "verb": "train",
+    "meaning": "to teach or learn skills",
+    "example": "They trained for the marathon."
+  },
+  {
+    "id": 92,
+    "verb": "translate",
+    "meaning": "to change into another language",
+    "example": "Can you translate this?"
+  },
+  {
+    "id": 93,
+    "verb": "understand",
+    "meaning": "to grasp meaning",
+    "example": "I understand the topic."
+  },
+  {
+    "id": 94,
+    "verb": "update",
+    "meaning": "to bring up to date",
+    "example": "Update the software."
+  },
+  {
+    "id": 95,
+    "verb": "warn",
+    "meaning": "to tell about danger",
+    "example": "He warned them about the storm."
+  },
+  {
+    "id": 96,
+    "verb": "waste",
+    "meaning": "to use without need",
+    "example": "Don\u2019t waste your time."
+  },
+  {
+    "id": 97,
+    "verb": "wonder",
+    "meaning": "to be curious about",
+    "example": "I wonder what happened."
+  }
+]
