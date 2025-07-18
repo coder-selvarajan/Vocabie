@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import Speech
-import AVFoundation
 
 struct ChatMessage {
     let id = UUID()
@@ -22,38 +20,28 @@ struct AIEnglishChatbotView: View {
     @State private var showingPromptsModal = false
     @FocusState private var isTextFieldFocused: Bool
     
-    // Voice-related state
-    @State private var speechRecognizer = SFSpeechRecognizer()
-    @State private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
-    @State private var recognitionTask: SFSpeechRecognitionTask?
-    @State private var audioEngine = AVAudioEngine()
-    @State private var isRecording = false
-    @State private var speechSynthesizer = AVSpeechSynthesizer()
-    @State private var isSpeaking = false
-    @State private var speechPermissionStatus: SFSpeechRecognizerAuthorizationStatus = .notDetermined
-    
     private let usefulPrompts = [
         "Give me 10 popular words with meaning and example usage for an intermediate learner.",
         "What are 5 advanced English words I can use in a business email, with examples?",
         "Give me 10 commonly confused word pairs and explain the difference.",
         "List 5 adjectives to describe people positively, with sentence examples.",
-        "Suggest 10 verbs I can use instead of 'get' in different situations.",
+        "Suggest 10 verbs I can use instead of “get” in different situations.",
 
-        "Explain when to use 'much' vs 'many' with examples.",
+        "Explain when to use “much” vs “many” with examples.",
         "What are 5 common grammar mistakes learners make, and how to avoid them?",
         "Show me how to convert active voice to passive voice with 3 examples.",
-        "How do I use modal verbs like 'could,' 'should,' and 'would'?",
+        "How do I use modal verbs like “could,” “should,” and “would”?",
         "Give me 5 sentence examples using the present perfect tense.",
 
         "Teach me 5 polite ways to ask for help in English.",
         "Give me a short conversation between two people meeting for the first time.",
         "What are 10 useful phrases I can use while shopping in English?",
-        "How do I respond to small talk like 'How's it going?'",
+        "How do I respond to small talk like “How’s it going?”",
         "Create a dialogue between a customer and waiter at a restaurant.",
 
         "What are 5 commonly used English idioms and their meanings?",
         "Explain 5 useful phrasal verbs related to travel with examples.",
-        "What's the meaning of 'break the ice' and how can I use it in a sentence?",
+        "What’s the meaning of “break the ice” and how can I use it in a sentence?",
 
         "Test me with 5 fill-in-the-blank sentences using intermediate vocabulary.",
         "Give me a daily word with meaning, synonyms, antonyms, and example usage."
@@ -136,56 +124,22 @@ struct AIEnglishChatbotView: View {
                                     // User message
                                     HStack {
                                         Spacer()
-                                        HStack {
-                                            Text(message.text)
-                                                .font(.body)
-                                                .foregroundColor(.white)
-                                            
-                                            // Speaker button for user messages
-                                            Button(action: {
-                                                speakText(message.text)
-                                            }) {
-                                                Image(systemName: isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
-                                                    .font(.caption)
-                                                    .foregroundColor(.white.opacity(0.8))
-                                            }
-                                            .disabled(isSpeaking)
-                                        }
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 10)
-                                        .background(Color.indigo)
-                                        .cornerRadius(18)
-                                        .frame(maxWidth: .infinity * 0.8, alignment: .trailing)
+                                        Text(message.text)
+                                            .font(.body)
+                                            .foregroundColor(.white)
+                                            .padding(.horizontal, 16)
+                                            .padding(.vertical, 10)
+                                            .background(Color.indigo)
+                                            .cornerRadius(18)
+                                            .frame(maxWidth: .infinity * 0.8, alignment: .trailing)
                                     }
                                     .padding(.horizontal, 16)
                                     .padding(.bottom, 8)
                                 } else {
-                                    // AI response with speaker button
-                                    VStack(alignment: .leading, spacing: 8) {
-                                        MarkdownText(message.text)
-                                        
-                                        HStack {
-                                            Spacer()
-                                            Button(action: {
-                                                speakText(message.text)
-                                            }) {
-                                                HStack(spacing: 4) {
-                                                    Image(systemName: isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
-                                                        .font(.caption)
-                                                    Text(isSpeaking ? "Speaking..." : "Listen")
-                                                        .font(.caption)
-                                                }
-                                                .foregroundColor(.indigo)
-                                                .padding(.horizontal, 12)
-                                                .padding(.vertical, 6)
-                                                .background(Color.indigo.opacity(0.1))
-                                                .cornerRadius(12)
-                                            }
-                                            .disabled(isSpeaking)
-                                        }
-                                    }
-                                    .padding(.horizontal, 16)
-                                    .padding(.bottom, index == messages.count - 1 ? 16 : 0)
+                                    // AI response
+                                    MarkdownText(message.text)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, index == messages.count - 1 ? 16 : 0)
                                 }
                             }
                             .id(message.id)
@@ -252,34 +206,6 @@ struct AIEnglishChatbotView: View {
                     .background(Color.gray.opacity(0.5))
                 
                 HStack(spacing: 12) {
-                    // Voice recording button
-                    Button(action: {
-                        if isRecording {
-                            stopRecording()
-                        } else {
-                            startRecording()
-                        }
-                    }) {
-                        ZStack {
-                            Circle()
-                                .fill(isRecording ? Color.red : Color.indigo)
-                                .frame(width: 40, height: 40)
-                            
-                            if isRecording {
-                                Image(systemName: "stop.fill")
-                                    .font(.system(size: 18))
-                                    .foregroundColor(.white)
-                            } else {
-                                Image(systemName: "mic.fill")
-                                    .font(.system(size: 18))
-                                    .foregroundColor(.white)
-                            }
-                        }
-                    }
-                    .disabled(speechPermissionStatus != .authorized || aiService.isAIResponding)
-                    .scaleEffect(isRecording ? 1.1 : 1.0)
-                    .animation(.easeInOut(duration: 0.1), value: isRecording)
-                    
                     TextField("Type your message...", text: $messageText, axis: .vertical)
                         .textFieldStyle(PlainTextFieldStyle())
                         .lineLimit(1...4)
@@ -301,22 +227,6 @@ struct AIEnglishChatbotView: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
                 .background(Color(.systemBackground))
-                
-                // Recording indicator
-                if isRecording {
-                    HStack {
-                        Circle()
-                            .fill(Color.red)
-                            .frame(width: 8, height: 8)
-                            .scaleEffect(1.0)
-                            .animation(.easeInOut(duration: 0.5).repeatForever(), value: isRecording)
-                        
-                        Text("Recording... Tap to stop")
-                            .font(.caption)
-                            .foregroundColor(.red)
-                    }
-                    .padding(.bottom, 8)
-                }
             }
         }
         .background(Color(.systemGroupedBackground))
@@ -356,22 +266,11 @@ struct AIEnglishChatbotView: View {
             )
             .preferredColorScheme(.light)
         }
-        .onAppear {
-            requestSpeechPermission()
-            setupAudioSession()
-        }
-        .onDisappear {
-            stopRecording()
-            stopSpeaking()
-        }
     }
     
     private func sendMessage() {
         let trimmedMessage = messageText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedMessage.isEmpty && !aiService.isAIResponding else { return }
-        
-        // Stop any ongoing speech
-        stopSpeaking()
         
         // Add user message to messages array
         let userMessage = ChatMessage(text: trimmedMessage, isUser: true)
@@ -396,137 +295,14 @@ struct AIEnglishChatbotView: View {
             } catch {
                 // Handle error
                 await MainActor.run {
+                    /*
+                    let errorMessage = ChatMessage(text: "Sorry, I encountered an error: \(error.localizedDescription)", isUser: false)
+                    */
                     let errorMessage = ChatMessage(text: "Sorry, I encountered an error. Please try again later.", isUser: false)
                     messages.append(errorMessage)
                 }
             }
         }
-    }
-    
-    // MARK: - Speech Recognition Functions
-    
-    private func requestSpeechPermission() {
-        SFSpeechRecognizer.requestAuthorization { authStatus in
-            DispatchQueue.main.async {
-                speechPermissionStatus = authStatus
-            }
-        }
-    }
-    
-    private func setupAudioSession() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Failed to set up audio session: \(error)")
-        }
-    }
-    
-    private func startRecording() {
-        guard speechPermissionStatus == .authorized else { return }
-        
-        // Cancel any previous task
-        recognitionTask?.cancel()
-        recognitionTask = nil
-        
-        // Create recognition request
-        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-        guard let recognitionRequest = recognitionRequest else { return }
-        
-        recognitionRequest.shouldReportPartialResults = true
-        
-        // Start audio engine
-        let inputNode = audioEngine.inputNode
-        let recordingFormat = inputNode.outputFormat(forBus: 0)
-        
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
-            recognitionRequest.append(buffer)
-        }
-        
-        audioEngine.prepare()
-        
-        do {
-            try audioEngine.start()
-            isRecording = true
-            
-            // Start recognition task
-            recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { result, error in
-                if let result = result {
-                    DispatchQueue.main.async {
-                        messageText = result.bestTranscription.formattedString
-                    }
-                    
-                    if result.isFinal {
-                        DispatchQueue.main.async {
-                            stopRecording()
-                        }
-                    }
-                }
-                
-                if let error = error {
-                    print("Speech recognition error: \(error)")
-                    DispatchQueue.main.async {
-                        stopRecording()
-                    }
-                }
-            }
-        } catch {
-            print("Failed to start recording: \(error)")
-            stopRecording()
-        }
-    }
-    
-    private func stopRecording() {
-        audioEngine.stop()
-        audioEngine.inputNode.removeTap(onBus: 0)
-        recognitionRequest?.endAudio()
-        recognitionTask?.cancel()
-        
-        isRecording = false
-        recognitionRequest = nil
-        recognitionTask = nil
-    }
-    
-    // MARK: - Text-to-Speech Functions
-    
-    private func speakText(_ text: String) {
-        guard !text.isEmpty else { return }
-        
-        // Stop any ongoing speech
-        stopSpeaking()
-        
-        // Clean the text for speech (remove markdown formatting)
-        let cleanText = cleanTextForSpeech(text)
-        
-        let utterance = AVSpeechUtterance(string: cleanText)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
-        utterance.pitchMultiplier = 1.0
-        utterance.volume = 1.0
-        
-        isSpeaking = true
-        speechSynthesizer.speak(utterance)
-    }
-    
-    private func stopSpeaking() {
-        if speechSynthesizer.isSpeaking {
-            speechSynthesizer.stopSpeaking(at: .immediate)
-        }
-        isSpeaking = false
-    }
-    
-    private func cleanTextForSpeech(_ text: String) -> String {
-        var cleanText = text
-        
-        // Remove markdown formatting
-        cleanText = cleanText.replacingOccurrences(of: #"\*\*(.*?)\*\*"#, with: "$1", options: .regularExpression)
-        cleanText = cleanText.replacingOccurrences(of: #"(?<!\*)\*(?!\*)([^*]+)\*(?!\*)"#, with: "$1", options: .regularExpression)
-        cleanText = cleanText.replacingOccurrences(of: #"^#+\s*"#, with: "", options: .regularExpression)
-        cleanText = cleanText.replacingOccurrences(of: #"^[-*]\s*"#, with: "", options: .regularExpression)
-        cleanText = cleanText.replacingOccurrences(of: #"^\d+\.\s*"#, with: "", options: .regularExpression)
-        cleanText = cleanText.replacingOccurrences(of: #"^>\s*"#, with: "", options: .regularExpression)
-        
-        return cleanText
     }
 }
 
